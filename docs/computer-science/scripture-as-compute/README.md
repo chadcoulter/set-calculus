@@ -96,4 +96,4 @@ The model began by extracting computational structure from the Scripture as Soft
 
 The current baseline is recorded in [ANCHOR_CORE_0.1.md](./ANCHOR_CORE_0.1.md).
 
-Future work should build from that anchor unless a foundational revision is intentional.
+The anchor records what has been defined so far. Additional work may extend this area later, but no next-step stack or priority is implied.
