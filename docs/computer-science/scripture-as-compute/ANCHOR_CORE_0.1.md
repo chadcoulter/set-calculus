@@ -129,4 +129,4 @@ Each transition contributes to an execution trace describing which operation, co
 
 As of Core 0.1, Scripture as Compute is defined as a typed executable transformation model in which a scriptural unit operates over contextual state, under actors, constraints, scope, mediation, handlers, migration, integrity, variants, and completion semantics.
 
-This anchor exists so future work can build forward from the current system rather than repeatedly reopening the foundational model.
+This anchor exists to capture the current system state. It does not establish a roadmap, priority order, or requirement to continue the compiler/runtime stack.
