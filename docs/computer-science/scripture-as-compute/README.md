@@ -2,9 +2,11 @@
 
 ## Status
 
-Core 0.1 conceptual stack is now defined through the interpreter and execution engine.
+The Core 0.1 runtime architecture is defined and the documentation branch is complete for review.
 
-See:
+This does **not** claim that the runtime implementation, integration, or automated test suite already exists. Those are explicitly separated by the completion gates below.
+
+## Core Documents
 
 - [Core 0.1 Anchor](./ANCHOR_CORE_0.1.md)
 - [Core Types and Transforms](./CORE_TYPES_AND_TRANSFORMS.md)
@@ -13,11 +15,41 @@ See:
 - [Type Checker](./TYPE_CHECKER.md)
 - [Interpreter and Execution Engine](./INTERPRETER_AND_EXECUTION_ENGINE.md)
 
+## Start Runtime Library
+
+- [Start Library Schema](./START_LIBRARY_SCHEMA.md)
+- [Start Library Loading Pipeline](./START_LIBRARY_LOADING_PIPELINE.md)
+
+The Start library defines the initial executable world and is converted into a typed runtime environment through parsing, import resolution, namespace binding, schema validation, dependency checking, type checking, and instantiation.
+
+## Completion Gates
+
+- [Runtime Completion Criteria](./RUNTIME_COMPLETION_CRITERIA.md)
+- [Implementation Completeness Gate](./RUNTIME_IMPLEMENTATION_COMPLETENESS_GATE.md)
+- [Integration Completeness Gate](./RUNTIME_INTEGRATION_COMPLETENESS_GATE.md)
+- [Test Completeness Gate](./RUNTIME_TEST_COMPLETENESS_GATE.md)
+- [Release Readiness Gate](./RUNTIME_RELEASE_READINESS_GATE.md)
+
+The four completeness dimensions are intentionally independent:
+
+```text
+Architecture
+Implementation
+Integration
+Tests
+```
+
+Release readiness requires all four gates to pass.
+
+## Source Artifact
+
 The original white-paper framing is preserved separately under:
 
 ```text
 docs/scripture-as-compute/scripture-as-software-whitepaper.txt
 ```
+
+That source is retained as provenance for the computational extraction.
 
 ## Core Model
 
@@ -37,7 +69,7 @@ Canonical typed form:
 S1:State
 ```
 
-with optional post-transform checks:
+with post-transform evaluation:
 
 ```text
 I:Integrity<State>(S1)
@@ -71,29 +103,35 @@ INVALID
 COMPLETE
 ```
 
-## Current Architecture
+## Runtime Architecture
 
 ```text
-source
-  -> lexer
+Start source
   -> parser
-  -> AST
-  -> binder
-  -> generic type resolution
+  -> import resolver
+  -> namespace binder
+  -> schema validator
+  -> dependency checker
+  -> type resolver
   -> type checker
-  -> typed AST
-  -> interpreter
-  -> execution trace
+  -> TypedStartGraph
+  -> RuntimeEnvironment
+  -> interpreter / execution engine
+  -> scope / mediator / constraints
+  -> operations / handlers
+  -> migrations / variants
+  -> integrity
+  -> completion
+  -> ExecutionResult
+  -> execution trace + provenance
 ```
 
-The runtime enforces scope, applies mediators, evaluates constraints, executes operations, dispatches handlers, applies migrations and variants, validates integrity, evaluates completion, and preserves provenance across immutable state transitions.
-
-## Source Extraction
-
-The model began by extracting computational structure from the Scripture as Software white paper. That source introduced the initial firmware/runtime, migration, language-build-target, textual-variant, integrity, mediation, event-handler, and completion concepts that were then formalized here.
+The runtime preserves immutable state transitions and source provenance throughout execution.
 
 ## Core 0.1 Boundary
 
-The current baseline is recorded in [ANCHOR_CORE_0.1.md](./ANCHOR_CORE_0.1.md).
+The current architectural baseline is recorded in [ANCHOR_CORE_0.1.md](./ANCHOR_CORE_0.1.md).
 
-The anchor records what has been defined so far. Additional work may extend this area later, but no next-step stack or priority is implied.
+The branch captures the state-machine/runtime architecture, Start library boundary, loading contract, execution semantics, and the concrete gates required to distinguish architectural completeness from implementation, integration, testing, and release readiness.
+
+No further architectural work is required for this branch to be reviewed and merged. Future implementation work can proceed against the gates defined here.
