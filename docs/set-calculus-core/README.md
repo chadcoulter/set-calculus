@@ -61,3 +61,6 @@ Define each primitive independently of programming-language implementation, then
 ## Active formalizations
 
 - `TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md` - trajectory admissibility, composition, boundary compatibility, representation structures, depth-indexed requirements, requirement entailment, and supported resolution depth.
+- `ANCHOR_FOUNDATIONAL_SPACE.md` - minimal foundational resolution-space substrate, primitive objects, notation, reconciliation states, closure, provenance, and Anchor axioms.
+- `RESOLUTION_TRANSITION_PROBLEM.md` - finite decision problem over an Anchor projection; canonical linear certificate bound and polynomial verifier establish bounded RTP membership in NP.
+- `artifacts/Resolution_Space_Framework.pdf` - preserved primary source artifact for the Anchor/RTP line; see `../provenance/PHOTONIC_MODEL_ANCHOR_LINEAGE.md` for project provenance.
