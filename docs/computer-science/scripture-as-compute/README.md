@@ -1,176 +1,50 @@
-# Scripture as Compute — Computer Science Extraction
+# Scripture as Compute — Computer Science
 
-## Source
+## Status
 
-This document extracts the computational structure already present in `scripture-as-software-whitepaper.txt`.
-It does not attempt to validate or correct the theological or historical claims in that paper.
+Core 0.1 conceptual stack is now defined through the interpreter and execution engine.
 
-## 1. Candidate System Model
+See:
 
-The white paper implies a computational system with the following primitives:
+- [Core 0.1 Anchor](./ANCHOR_CORE_0.1.md)
+- [Core Types and Transforms](./CORE_TYPES_AND_TRANSFORMS.md)
+- [Typed Grammar](./TYPED_GRAMMAR.md)
+- [AST and Parser](./AST_AND_PARSER.md)
+- [Type Checker](./TYPE_CHECKER.md)
+- [Interpreter and Execution Engine](./INTERPRETER_AND_EXECUTION_ENGINE.md)
 
-- **State** — the current condition of the covenantal / human system.
-- **Constraint** — rules governing allowable and disallowed transitions.
-- **Input** — actions, conditions, actors, or events entering the system.
-- **Transition** — a change from one system state to another.
-- **Handler** — a response triggered by a condition or violation.
-- **Mediator** — a required access layer between actors and protected resources.
-- **Scope** — the population or domain over which a rule or process operates.
-- **Resource** — a capability consumed, granted, mediated, or transformed.
-- **Migration** — a change in the execution model while preserving some prior semantics.
-- **Integrity rule** — a rule intended to preserve textual or system identity across copying, transmission, or modification.
-- **Build target** — a linguistic or cultural realization of the same underlying specification.
-- **Variant** — a divergence introduced during transmission, translation, copying, or interpretation.
-- **Completion condition** — a terminating condition that closes a repeated process.
-
-## 2. Minimal Execution Form
-
-A passage or rule can be represented provisionally as:
+The original white-paper framing is preserved separately under:
 
 ```text
-S0 + I + C -> T -> S1
+docs/scripture-as-compute/scripture-as-software-whitepaper.txt
 ```
 
-Where:
+## Core Model
 
-- `S0` = initial state
-- `I` = input or event
-- `C` = applicable constraints / context
-- `T` = transform or operation
-- `S1` = resulting state
-
-This is the first useful bridge into Set Calculus.
-
-## 3. Higher-Order Structure
-
-The white paper describes several recurring computational patterns:
-
-### Conditional transition
+A scriptural unit is modeled as an operation over contextual state:
 
 ```text
-IF condition
-THEN transition
-ELSE consequence
+ScriptureUnit(Context, Actor, State) -> State'
 ```
 
-### Repeated process
+Canonical typed form:
 
 ```text
-state -> operation -> partial resolution -> repeat
+(C:Context, A:Actor, S0:State)
+    --[K:Constraint]
+    O:Operation<State,State>
+-->
+S1:State
 ```
 
-### Completion transform
+with optional post-transform checks:
 
 ```text
-repeated_process -> terminal_operation -> completed_state
+I:Integrity<State>(S1)
+Q:Completion<State>(S1)
 ```
 
-### Mediation
-
-```text
-actor -> mediator -> protected resource
-```
-
-followed by the migration:
-
-```text
-actor -> protected resource
-```
-
-### Scope expansion
-
-```text
-domain(A) -> domain(A + B + ...)
-```
-
-### Runtime hook
-
-```text
-event -> handler -> state change
-```
-
-### Integrity preservation
-
-```text
-artifact_n -> verification -> artifact_n+1
-```
-
-## 4. OT -> NT Migration Model Extracted from the Paper
-
-The paper explicitly models the transition as a version migration rather than deletion:
-
-```text
-external_constraint -> internalized_constraint
-repeated_operation  -> single_completion
-central_mediator    -> distributed/direct_access
-restricted_scope    -> expanded_scope
-defined_consequence -> internal_transformation
-```
-
-This can later be represented as a Set Calculus migration operator over system properties.
-
-## 5. Language as Architecture
-
-The paper treats language traditions as different execution/build targets.
-
-That yields a potentially useful abstraction:
-
-```text
-Specification
-   |
-   +-> Hebrew target
-   +-> Greek target
-   +-> Aramaic target
-   +-> Latin target
-   +-> Syriac target
-```
-
-The important computational question is therefore not merely whether two translations use equivalent words, but whether a transformation preserves:
-
-- state semantics,
-- operator semantics,
-- constraints,
-- scope,
-- causal relationships,
-- and termination conditions.
-
-## 6. Textual Variants as State Divergence
-
-The paper's version-control metaphor implies:
-
-```text
-source_state
-   |
-   +-> variant A
-   +-> variant B
-   +-> variant C
-```
-
-A future Set Calculus model could treat textual transmission as a provenance graph where each variant is a transformation with measurable semantic distance from a prior state.
-
-## 7. Candidate Set Calculus Primitive
-
-The strongest immediate extraction is:
-
-> A scriptural unit may be modeled as an operation that transforms a contextual state.
-
-Provisional form:
-
-```text
-ScriptureUnit(context, actor, state) -> transformed_state
-```
-
-or more abstractly:
-
-```text
-U : (C, A, S) -> S'
-```
-
-This is still only an extracted model from the white paper. It is not yet a complete formal calculus.
-
-## 8. Next Formalization Target
-
-The next computer-science task is to define the type system for:
+## Core Types
 
 ```text
 State
@@ -178,9 +52,48 @@ Context
 Actor
 Constraint
 Operation
-Resolver
-Transition
-Result
+Handler
+Mediator
+Scope
+Migration
+Integrity
+Variant
+Completion
 ```
 
-Once those types exist, individual passages can be encoded and tested as transformations rather than treated only as prose.
+## Execution Outcomes
+
+```text
+RESOLVED
+UNRESOLVED
+BLOCKED
+INVALID
+COMPLETE
+```
+
+## Current Architecture
+
+```text
+source
+  -> lexer
+  -> parser
+  -> AST
+  -> binder
+  -> generic type resolution
+  -> type checker
+  -> typed AST
+  -> interpreter
+  -> execution trace
+```
+
+The runtime enforces scope, applies mediators, evaluates constraints, executes operations, dispatches handlers, applies migrations and variants, validates integrity, evaluates completion, and preserves provenance across immutable state transitions.
+
+## Source Extraction
+
+The model began by extracting computational structure from the Scripture as Software white paper. That source introduced the initial firmware/runtime, migration, language-build-target, textual-variant, integrity, mediation, event-handler, and completion concepts that were then formalized here.
+
+## Core 0.1 Boundary
+
+The current baseline is recorded in [ANCHOR_CORE_0.1.md](./ANCHOR_CORE_0.1.md).
+
+Future work should build from that anchor unless a foundational revision is intentional.
