@@ -75,4 +75,4 @@ docs/provenance/PHOTONIC_MODEL_ANCHOR_LINEAGE.md
 docs/provenance/GR_AI_GAMMA_ANCHOR_DELTA.json
 ```
 
-The project/provenance name is preserved as supplied. The current mathematical status is recorded separately: bounded canonical RTP is in NP; NP-hardness and NP-completeness remain open proof obligations.
+The project/provenance name is preserved as supplied. The mathematical status is recorded separately: the bounded canonical RTP under `RTP-ENC-v1` is now formally proved NP-complete via the verified polynomial-time reduction `3SAT <=p RTP_SAT`. The earlier open-proof status remains preserved in the historical provenance artifacts.

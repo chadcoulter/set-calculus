@@ -14,7 +14,8 @@
     "docs/set-calculus-core/ANCHOR_FOUNDATIONAL_SPACE.md",
     "docs/set-calculus-core/RESOLUTION_TRANSITION_PROBLEM.md",
     "docs/provenance/PHOTONIC_MODEL_ANCHOR_LINEAGE.md",
-    "docs/set-calculus-core/artifacts/Resolution_Space_Framework.pdf"
+    "docs/set-calculus-core/artifacts/Resolution_Space_Framework.pdf",
+    "docs/set-calculus-core/RTP_CANONICAL_ENCODING_AND_SIZE_PROOFS.md"
   ],
   "sources": [
     {
@@ -308,6 +309,25 @@
       "capture_status": "FULL",
       "notes": [
         "Preserves project/research lineage separately from formal NP-completeness theorem status."
+      ]
+    },
+    {
+      "id": "gr-ai-gamma:artifact:rtp-canonical-encoding-size-proofs",
+      "name": "RTP-ENC-v1 Canonical Encoding and Final Size Proofs",
+      "aliases": [
+        "RTP-ENC-v1"
+      ],
+      "kind": "REPOSITORY_ARTIFACT",
+      "locator": "docs/set-calculus-core/RTP_CANONICAL_ENCODING_AND_SIZE_PROOFS.md",
+      "repository_ref": "anchor-foundational-space",
+      "content_sha": "e0eaccc65035192fd312243ec95892c3ef5f7340",
+      "version": "RTP-ENC-v1",
+      "author": null,
+      "date": "2026-09-22",
+      "epistemic_status": "OBSERVED",
+      "capture_status": "FULL",
+      "notes": [
+        "Freezes the canonical RTP encoding, discharges PO-1/PO-11/PO-12, and completes the NP-hardness/NP-completeness proof chain."
       ]
     }
   ],
@@ -653,6 +673,24 @@
       "epistemic_status": "OBSERVED",
       "calibration_status": "PROVENANCE_REQUIRED",
       "unmapped_remainder": false
+    },
+    {
+      "id": "gr-ai-gamma:artifact:rtp-canonical-encoding-passage-np-complete",
+      "source_id": "gr-ai-gamma:artifact:rtp-canonical-encoding-size-proofs",
+      "label": "Completed RTP NP-completeness theorem",
+      "location": {
+        "section": "19. NP-hardness theorem / 20. NP-completeness theorem",
+        "page_start": null,
+        "page_end": null,
+        "line_start": null,
+        "line_end": null,
+        "heading": "NP-completeness theorem"
+      },
+      "capture": "STRUCTURAL",
+      "summary": "All PO-1 through PO-12 are discharged; 3SAT <=p RTP_SAT, RTP is NP-hard, and with RTP in NP the canonical bounded RTP under RTP-ENC-v1 is NP-complete.",
+      "epistemic_status": "OBSERVED",
+      "calibration_status": "FORMAL_CLOSED",
+      "unmapped_remainder": false
     }
   ],
   "objects": [
@@ -839,7 +877,7 @@
       "repo_path": "docs/set-calculus-core/RESOLUTION_TRANSITION_PROBLEM.md",
       "section": "Verifier complexity",
       "notes": [
-        "Does not establish NP-hardness or NP-completeness."
+        "Membership in NP is one component of the completed NP-completeness theorem; see gr-ai-gamma:discovery:rtp-np-complete."
       ]
     },
     {
@@ -853,7 +891,36 @@
       "repo_path": "docs/provenance/PHOTONIC_MODEL_ANCHOR_LINEAGE.md",
       "section": "Canonical project provenance name",
       "notes": [
-        "Project name is preserved separately from theorem status; RTP NP-hardness remains open."
+        "Project provenance name predates completion of the theorem.",
+        "The canonical bounded RTP under RTP-ENC-v1 is now formally proved NP-complete in repository artifacts."
+      ]
+    },
+    {
+      "id": "gr-ai-gamma:transform:3sat-to-rtp-sat-reduction",
+      "name": "3SAT to RTP_SAT Polynomial Reduction",
+      "calculus": "SET_CALCULUS",
+      "kind": "TRANSFORM",
+      "epistemic_status": "VERIFIED",
+      "calibration_status": "FORMAL_CLOSED",
+      "definition": "Polynomial-time mapping f from explicit 3-CNF instances to RTP_SAT instances such that phi is satisfiable iff f(phi) is accepted.",
+      "repo_path": "docs/set-calculus-core/RTP_NP_HARDNESS_REDUCTION.md",
+      "section": "Theorem",
+      "notes": [
+        "Uses fixed seven-schema R_SAT, RTP-ENC-v1, and provenance-preserving local verification."
+      ]
+    },
+    {
+      "id": "gr-ai-gamma:discovery:rtp-np-complete",
+      "name": "Canonical bounded RTP is NP-complete",
+      "calculus": "SET_CALCULUS",
+      "kind": "THEOREM",
+      "epistemic_status": "VERIFIED",
+      "calibration_status": "FORMAL_CLOSED",
+      "definition": "Under RTP-ENC-v1, RTP is in NP and is NP-hard via the polynomial-time many-one reduction 3SAT <=p RTP_SAT; therefore RTP is NP-complete.",
+      "repo_path": "docs/set-calculus-core/RTP_CANONICAL_ENCODING_AND_SIZE_PROOFS.md",
+      "section": "NP-completeness theorem",
+      "notes": [
+        "Scope is the canonical bounded RTP problem under RTP-ENC-v1."
       ]
     }
   ],
@@ -1072,6 +1139,18 @@
       "status": "ACTIVE",
       "confidence": 1,
       "rationale": "The lineage record directly preserves the project provenance name and separates it from unresolved NP-completeness theorem status.",
+      "derived_from_mapping_ids": []
+    },
+    {
+      "id": "map:rtp-encoding-proof-to-np-completeness",
+      "passage_id": "gr-ai-gamma:artifact:rtp-canonical-encoding-passage-np-complete",
+      "object_id": "gr-ai-gamma:discovery:rtp-np-complete",
+      "interpretation_level": "DIRECT",
+      "mapping_role": "PRIMARY",
+      "calibration_status": "FORMAL_CLOSED",
+      "status": "ACTIVE",
+      "confidence": 1,
+      "rationale": "The proof artifact states the completed NP-hardness and NP-completeness theorem after discharging all listed obligations.",
       "derived_from_mapping_ids": []
     }
   ],

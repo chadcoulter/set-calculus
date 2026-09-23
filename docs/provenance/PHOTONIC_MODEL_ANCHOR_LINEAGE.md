@@ -67,20 +67,25 @@ The following is an asserted provenance statement:
 The Anchor/RTP development arose from the 100 Monkeys Photonic Model NP-Complete Solution research line.
 ```
 
-The following is currently formally established in the repository-ready specification:
+At initial capture, the repository had formally established only:
 
 ```text
 RTP in NP
 ```
 
-The following remains an open theorem target:
+and NP-hardness / NP-completeness were open.
+
+The subsequent proof branch discharged PO-1 through PO-12, froze `RTP-ENC-v1`, and established:
 
 ```text
+3SAT <=p RTP_SAT
 RTP is NP-hard
 RTP is NP-complete
 ```
 
-The provenance name is therefore not silently converted into a proved complexity classification.
+for the canonical bounded RTP problem.
+
+The historical project name and the later theorem status remain separately recorded.
 
 ## Origin capture
 
@@ -90,7 +95,7 @@ The provenance name is therefore not silently converted into a proved complexity
 - Capture date: 2026-09-22
 - Capture method: source artifact preserved unchanged; formal Anchor and RTP specifications derived in conversation and packaged for repository inclusion
 - Interpretation status: source-derived + human-directed formalization
-- Complexity status: `RTP in NP` established by bounded certificate/verifier definition; NP-hardness unresolved
+- Complexity status at initial capture: `RTP in NP`; later formalization under `RTP-ENC-v1` establishes `RTP is NP-complete` via `3SAT <=p RTP_SAT`.
 
 ## Provenance rule
 

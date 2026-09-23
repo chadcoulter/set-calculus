@@ -455,21 +455,25 @@ Complexity theory is applied only after an Anchor problem has been projected int
 
 The canonical Resolution Transition Problem is defined in `RESOLUTION_TRANSITION_PROBLEM.md`.
 
-For that bounded canonical problem:
+For that bounded canonical problem under:
+
+```text
+RTP-ENC-v1
+RTP-RULES-v1
+RTP-BOUNDARIES-v1
+```
+
+the canonical verifier proofs establish:
 
 ```text
 trajectory transitions <= N
 certificate size = O(N^2)
-verification time = O(N^(q+1))
+verifier state size = O(N^2)
+primitive registry check = O(W^2)
+verification time = O(N^5)
 ```
 
-for fixed polynomial per-transition verification exponent `q`.
-
-Under a conservative `O(N^2)` per-transition verifier:
-
-```text
-verification time = O(N^3)
-```
+under the deliberately conservative uniform verifier model defined in `RTP_CANONICAL_VERIFIER_REGISTRIES.md` and `RTP_VERIFIER_STATE_SIZE.md`.
 
 Therefore the bounded canonical RTP is in NP.
 
