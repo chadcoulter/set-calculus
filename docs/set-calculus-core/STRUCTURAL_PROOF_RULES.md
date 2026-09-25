@@ -502,6 +502,8 @@ Weakening with material post-closure evidence invokes the reopening rules rather
 
 # 12. Rule interaction with closure and reopening
 
+Closure-layer event order and legal composition are governed by `CLOSURE_REOPENING_ALGEBRA.md`. Structural proof operations may not alter the A10 event sequence, active receipt, epoch, or provenance order.
+
 Closure does not freeze the proof context against material evidence.
 
 ```text
