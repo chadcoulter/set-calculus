@@ -311,15 +311,30 @@ items:
     required: true
     owner: "Chad Coulter"
     artifact_paths:
-      - "docs/set-calculus-core/"
+      - "docs/set-calculus-core/RESOLUTION_TRANSITION_SEMANTICS.md"
+      - "docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md"
+      - "docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md"
+      - "docs/set-calculus-core/TRANSFORM_SEMANTICS.md"
+      - "docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md"
+      - "docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md"
+      - "scripts/audit_core_a9_resolution_transitions.py"
+      - ".github/workflows/core-a9-resolution-transitions.yml"
     evidence:
       pass:
-        - "Legal transitions among UNRESOLVED, PARTIAL, VALID, and INVALID are stated."
-        - "Reopening, reclassification, supersession, and new-material-evidence conditions are explicit."
+        - "All 12 off-diagonal transitions among UNRESOLVED, PARTIAL, VALID, and INVALID are explicit and conditional on recomputation."
+        - "Every public-state change requires an admissible material cause and a reconstructible transition witness."
+        - "Reopening, reclassification, supersession, evidence correction, Transform-caused change, and Context/Authority/rule-profile change are explicit."
+        - "Active closure cannot be bypassed when a material cause invalidates terminality."
+        - "Destination state equals the active four-state projection after recomputation."
         - "Conclusion change never deletes proof history."
+        - "The A9 resolution-transition audit passes on the final integration head."
       fail:
         - "A final classification can change without a recorded material cause."
-      observed: []
+        - "Reclassification can erase prior evidence, proof history, closure receipts, or superseded basis."
+        - "A destination state can be assigned without matching the recomputed evidence projection."
+      observed:
+        - "Canonical A9 resolution-transition contract exists at docs/set-calculus-core/RESOLUTION_TRANSITION_SEMANTICS.md."
+        - "A9 validation workflow and audit script exist."
     status: pending
 
   - id: "B1"
