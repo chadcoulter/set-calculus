@@ -1,6 +1,6 @@
 # Core 0.1 G1 Legacy Consistency Audit
 
-**Audit base:** \`e2f343104d7b720693f12a483b9243deca6bbacb\`  
+**Integration base:** `afb8afc6b57e8d9d26803bf370dab5bdcf9bda25` (`main` at integration start)  
 **Scope:** repository consistency evidence for \`CORE_0.1_COMPLETENESS_CHECKLIST.md\` gate G1  
 **Status:** legacy findings are preserved and explicitly marked historical/superseded on this branch; maintainer review remains required; this document does not mark G1 as passed
 
@@ -19,17 +19,40 @@ This audit preserves the repository's authority boundary. It identifies evidence
 
 ## Current canonical correction anchors
 
-The active trajectory formalization contains later corrective checkpoints that establish the current working direction:
+The current Core contains the following active correction anchors:
 
-- Section 24 separates Identity compatibility from State compatibility.
+- `docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md`, Section 24, separates Identity compatibility from State compatibility.
 - Section 24 expands the boundary witness discriminator to six types: Identity, State, Context, Authority, Invariant, and Provenance.
 - Section 25 makes PARTIAL a first-class resolution state and defines four-state validation/admissibility/entailment patterns.
 - Section 26 labels the current boundary model as the "Six-Witness Four-State Boundary Model."
-- Section 27 states that constructive positive closure does not require negative exhaustion and says the checkpoint supersedes the earlier assumption that positive closure requires it.
+- Section 27 defines the three-axis resolution profile, independent Decisive Positive / Decisive Negative predicates, constructive positive closure, decisive conflict handling, and tie-break precedence without negative exhaustion.
+- `docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md` extends the current resolution model with first-terminal-prefix closure, closure receipts, resolution epochs, evidence-driven reopening, protected residual conservation, and provenance-monotonic history.
 
-These later anchors are the basis for identifying earlier incompatible forms as legacy candidates. This is a consistency observation, not a claim that the audit has authority to promote or demote canonical rules.
+These anchors jointly define the current Core behavior used by this audit.
 
-## Baseline findings and branch disposition
+## Current Core integration check
+
+The G1 cleanup is evaluated against the Core as it exists on this branch, including the later closure/reopening formalization.
+
+The integrated consistency conditions are:
+
+```text
+Identity != State
+PARTIAL != UNRESOLVED
+public resolution states = {VALID, PARTIAL, UNRESOLVED, INVALID}
+boundary witness dimensions = {IDENTITY, STATE, CONTEXT, AUTHORITY, INVARIANT, PROVENANCE}
+DecisivePositive != !DecisiveNegative
+DecisiveNegative != !DecisivePositive
+constructive positive closure !-> negative exhaustion
+reopening changes active resolution state without deleting prior proof/provenance
+protected residual worsening requires explicit authorized exchange
+```
+
+The closure/reopening layer is consistent with the four-state resolution model: after reopening, the active public state is recomputed by the normal resolution algebra and may become PARTIAL, UNRESOLVED, or INVALID. Historical closure receipts remain preserved in provenance.
+
+The G1 audit therefore treats the early three-state/five-witness material as historical development and the later six-witness/four-state plus closure/reopening structures as the current Core.
+
+## Current findings and branch disposition
 
 All confirmed findings below occur in:
 
@@ -143,15 +166,11 @@ This is not a proof that no such wording exists anywhere. The repository-wide sc
 
 The repository-wide audit is enforced by `.github/workflows/core-g1-consistency-audit.yml`.
 
+The workflow watches the Core specification, philosophy/terminology material, this audit report, and the audit script. Because `docs/set-calculus-core/**` is included, later Core files such as `RESOLUTION_CLOSURE_AND_REOPENING.md` are part of the same consistency gate.
+
 A strict run succeeds only when the scanner finds zero `REVIEW_REQUIRED` matches. Historical/superseded material remains visible and is reported separately rather than deleted.
 
-The branch has demonstrated a successful strict run with:
-
-- `REVIEW_REQUIRED = 0`
-- `MARKED_HISTORICAL = 15`
-- `CONTROL_REFERENCE = 6`
-
-These counts are verification evidence for the branch cleanup. They are not a maintainer decision that G1 is formally passed. The final branch head must retain a successful strict workflow run after any subsequent edits.
+The final PR head must pass the strict audit. The audit result is evidence for G1 review; the G1 checkbox remains under the named maintainer's authority.
 
 ## Conservative cleanup path
 
