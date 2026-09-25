@@ -669,8 +669,9 @@ items:
       fail:
         - "A course-order assumption is used as mathematical dependency evidence without classification."
       observed:
-        - "Classification vocabulary exists and some provisional edges are classified, but full edge coverage is not yet evidenced."
-    status: pending
+        - "Dependency E2 Class Vocabulary passed on PR #14 after the specification-audit integration."
+        - "Material dependency edges use HARD, STRONG, SUPPORTING, or HISTORICAL/CURRICULAR; tested non-dependencies may remain NONE outside the E2 class set."
+    status: pass
 
   - id: "E3"
     gate: "E"
