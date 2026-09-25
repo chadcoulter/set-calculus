@@ -15,6 +15,7 @@ REQUIRED_FILES = (
     Path("docs/set-calculus-core/README.md"),
     Path("docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md"),
     Path("docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md"),
+    Path("docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md"),
     Path("docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md"),
     Path("docs/set-calculus-core/CORE_0.1_PATH_INDEX.md"),
     Path("CORE_0.1_COMPLETENESS_CHECKLIST.md"),
@@ -106,6 +107,9 @@ def validate(root: Path) -> dict[str, object]:
 
     if "reversible != provenance-erasing" not in spec:
         errors.append("reversibility/provenance distinction missing")
+
+    if "STRUCTURAL_PROOF_RULES.md" not in spec:
+        errors.append("A5 Transform semantics does not reference A8 structural rules")
 
     g2_audit = (root / "scripts/audit_core_g2_path_index.py").read_text(encoding="utf-8")
     if '"Transform semantics"' not in g2_audit:
