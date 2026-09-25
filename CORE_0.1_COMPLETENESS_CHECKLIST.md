@@ -253,13 +253,27 @@ If ownership changes, update this table without rewriting the mathematical requi
 
 - [ ] **A9 PASS — Legal resolution-state transitions are formally specified.**
   - **Owner:** Chad Coulter
-  - **Required artifact:** canonical resolution-transition section/file under `docs/set-calculus-core/`
+  - **Required artifacts:**
+    - `docs/set-calculus-core/RESOLUTION_TRANSITION_SEMANTICS.md`
+    - `docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md`
+    - `docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md`
+    - `docs/set-calculus-core/TRANSFORM_SEMANTICS.md`
+    - `docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md`
+    - `docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md`
+    - `scripts/audit_core_a9_resolution_transitions.py`
+    - `.github/workflows/core-a9-resolution-transitions.yml`
   - **PASS evidence:**
-    - legal transitions among UNRESOLVED, PARTIAL, VALID, and INVALID are stated;
-    - reopening, reclassification, supersession, and new-material-evidence conditions are explicit;
-    - conclusion change never deletes proof history.
+    - all 12 off-diagonal transitions among UNRESOLVED, PARTIAL, VALID, and INVALID are explicit and conditional on recomputation;
+    - every public-state change requires an admissible material cause and a reconstructible transition witness;
+    - reopening, reclassification, supersession, evidence correction, Transform-caused change, and Context/Authority/rule-profile change are explicit;
+    - active closure cannot be bypassed when a material cause invalidates terminality;
+    - destination state equals the active four-state projection after recomputation;
+    - conclusion change never deletes proof history;
+    - the A9 resolution-transition audit passes on the final integration head.
   - **FAIL evidence:**
-    - a final classification can change without a recorded material cause.
+    - a final classification can change without a recorded material cause;
+    - reclassification can erase prior evidence, proof history, closure receipts, or superseded basis;
+    - a destination state can be assigned without matching the recomputed evidence projection.
 
 ---
 
@@ -686,12 +700,15 @@ This section records the current checkpoint and should be updated as gates close
 - [x] Canonical structural proof-rule contract exists.
   - Evidence: `docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md`
 
+- [x] Canonical resolution-transition contract exists.
+  - Evidence: `docs/set-calculus-core/RESOLUTION_TRANSITION_SEMANTICS.md`
+
 ## Known open release blockers
 
 - [ ] Legacy three-state/five-witness material has been fully normalized.
 - [ ] A5 Transform semantics await maintainer PASS decision.
 - [ ] A8 structural proof rules await maintainer PASS decision.
-- [ ] Resolution-transition semantics are closed.
+- [ ] A9 resolution-transition semantics await maintainer PASS decision.
 - [ ] Reference implementation exists.
 - [ ] Canonical conformance suite exists and passes.
 - [ ] Derivative round-trip exists.
