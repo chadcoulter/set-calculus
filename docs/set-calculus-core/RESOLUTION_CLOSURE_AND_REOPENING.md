@@ -29,7 +29,7 @@ The first governs when resolution computation may stop and how a stopped result 
 
 The second governs whether a proposed closure is admissible when other protected residuals exist.
 
-Closure-producing Transform behavior is defined by `TRANSFORM_SEMANTICS.md`. A Transform may be declared `CLOSURE_PRODUCING`, but actual closure still requires the terminal contract and Protected Residual Conservation defined here. A later material Transform after closure must satisfy the reopening rules here and begins a new resolution epoch.
+Closure-producing Transform behavior is defined by `TRANSFORM_SEMANTICS.md`. Structural proof operations across closure or reopening boundaries are governed by `STRUCTURAL_PROOF_RULES.md`; they may not erase closure receipts, material reopening causes, protected residual effects, or epoch order. A Transform may be declared `CLOSURE_PRODUCING`, but actual closure still requires the terminal contract and Protected Residual Conservation defined here. A later material Transform after closure must satisfy the reopening rules here and begins a new resolution epoch.
 
 Together they establish:
 
