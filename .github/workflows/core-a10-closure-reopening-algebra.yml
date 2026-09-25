@@ -1,0 +1,61 @@
+name: Core A10 Closure Reopening Algebra
+
+on:
+  push:
+    paths:
+      - "CORE_0.1_COMPLETENESS_CHECKLIST.md"
+      - "CORE_0.1_COMPLETENESS_CHECKLIST.yaml"
+      - "docs/set-calculus-core/CLOSURE_REOPENING_ALGEBRA.md"
+      - "docs/set-calculus-core/README.md"
+      - "docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md"
+      - "docs/set-calculus-core/RESOLUTION_TRANSITION_SEMANTICS.md"
+      - "docs/set-calculus-core/TRANSFORM_SEMANTICS.md"
+      - "docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md"
+      - "docs/set-calculus-core/CORE_0.1_PATH_INDEX.md"
+      - "docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md"
+      - "scripts/audit_core_a10_closure_reopening_algebra.py"
+      - "scripts/audit_core_g2_path_index.py"
+      - ".github/workflows/core-a10-closure-reopening-algebra.yml"
+  pull_request:
+    paths:
+      - "CORE_0.1_COMPLETENESS_CHECKLIST.md"
+      - "CORE_0.1_COMPLETENESS_CHECKLIST.yaml"
+      - "docs/set-calculus-core/CLOSURE_REOPENING_ALGEBRA.md"
+      - "docs/set-calculus-core/README.md"
+      - "docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md"
+      - "docs/set-calculus-core/RESOLUTION_TRANSITION_SEMANTICS.md"
+      - "docs/set-calculus-core/TRANSFORM_SEMANTICS.md"
+      - "docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md"
+      - "docs/set-calculus-core/CORE_0.1_PATH_INDEX.md"
+      - "docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md"
+      - "scripts/audit_core_a10_closure_reopening_algebra.py"
+      - "scripts/audit_core_g2_path_index.py"
+      - ".github/workflows/core-a10-closure-reopening-algebra.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Validate A10 closure/reopening algebra
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compile A10 audit
+        run: python -m py_compile scripts/audit_core_a10_closure_reopening_algebra.py
+
+      - name: Validate A10 closure/reopening algebra
+        run: python scripts/audit_core_a10_closure_reopening_algebra.py
+
+      - name: Capture structured A10 evidence
+        if: always()
+        run: python scripts/audit_core_a10_closure_reopening_algebra.py --json
