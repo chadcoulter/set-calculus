@@ -769,6 +769,12 @@ This section records the current checkpoint and should be updated as gates close
   - Evidence: `docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md`
   - Validation: `scripts/audit_core_specification_a1_a4_a6_a7.py`
 
+- [x] G1 strict consistency audit passes.
+  - Validation: `scripts/audit_core_g1_consistency.py --strict`
+
+- [x] G2 canonical path-index audit passes.
+  - Validation: `scripts/audit_core_g2_path_index.py`
+
 - [x] Canonical resolution-transition contract exists.
   - Evidence: `docs/set-calculus-core/RESOLUTION_TRANSITION_SEMANTICS.md`
 
@@ -777,11 +783,11 @@ This section records the current checkpoint and should be updated as gates close
 
 ## Known open release blockers
 
-- [ ] Legacy three-state/five-witness material has been fully normalized.
-- [ ] A5 Transform semantics await maintainer PASS decision.
-- [ ] A8 structural proof rules await maintainer PASS decision.
-- [ ] A9 resolution-transition semantics await maintainer PASS decision.
-- [ ] A10 closure/reopening algebra await maintainer PASS decision.
+- [x] Legacy three-state/five-witness active contradictions have been normalized; retained historical sections are explicitly marked.
+- [x] A5 Transform semantics audit passes; human PASS checkbox remains a maintainer decision.
+- [x] A8 structural proof-rules audit passes; human PASS checkbox remains a maintainer decision.
+- [x] A9 resolution-transition audit passes; human PASS checkbox remains a maintainer decision.
+- [x] A10 closure/reopening algebra audit passes; human PASS checkbox remains a maintainer decision.
 - [ ] Reference implementation exists.
 - [ ] Canonical conformance suite exists and passes.
 - [ ] Derivative round-trip exists.
