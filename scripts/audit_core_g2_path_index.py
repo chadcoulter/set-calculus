@@ -23,6 +23,7 @@ REQUIRED_CATEGORIES = {
     "Core release gate",
     "Core terminology",
     "Trajectory and resolution formalization",
+    "Transform semantics",
     "Resolution closure and reopening",
     "Core entry point",
     "G1 consistency audit",
