@@ -42,7 +42,7 @@ GATE_TOKENS = {
         "Identity != State",
     ),
     "A2": (
-        "rho = <P,N,C>",
+        "ρ = <P,N,C>",
         "PARTIAL",
         "UNRESOLVED",
         "### 27.1.1 Deterministic coordinate construction",
