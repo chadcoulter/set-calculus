@@ -93,7 +93,7 @@ Member(x,C)
 
 ### Axiom TA-2: Transform Applicability
 
-Every Transform must be applicable to the State from which it is taken.
+Every Transform must be applicable to the State from which it is taken. Canonical applicability, input requirements, execution results, preservation, and failure semantics are defined in `TRANSFORM_SEMANTICS.md`.
 
 ```text
 Ti : s_(i-1) -> si
@@ -819,6 +819,8 @@ A merge is legitimate only when equivalence has been established for all materia
 ---
 
 # 9. Transform-Closure Requirements
+
+Atomic Transform legality and ordered composition are governed by `TRANSFORM_SEMANTICS.md`. The `Trans_t` requirement below therefore ranges over Transforms whose contracts are expressible and whose required compositions satisfy the canonical A5 composition predicate.
 
 Define:
 
