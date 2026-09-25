@@ -873,7 +873,29 @@ A5-14 protected residual sacrifice requires explicit authorized exchange
 
 ---
 
-# 21. A5 release evidence boundary
+# 21. Structural proof-rule interaction
+
+Proof-context transformations used to establish applicability, composition, preservation, substitution, or closure obligations are governed by `STRUCTURAL_PROOF_RULES.md`.
+
+In particular:
+
+```text
+exchange !-> reorder noncommuting Transforms
+
+cut !-> bypass intermediate Transform failure
+
+substitution !-> replace Transform input identity/type/scope without a VALID witness
+
+weakening after closure !-> preserve the prior closed conclusion when the added evidence is material
+
+contraction !-> merge independent execution evidence or provenance records
+```
+
+A5 Transform legality therefore depends on both the Transform contract and valid A8 structural proof operations.
+
+---
+
+# 22. A5 release evidence boundary
 
 This document supplies the canonical Transform semantics required by Core 0.1 A5.
 
