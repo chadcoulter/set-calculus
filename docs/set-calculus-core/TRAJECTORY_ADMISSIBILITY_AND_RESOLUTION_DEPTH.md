@@ -2284,7 +2284,7 @@ Unknown compatibility remains unresolved or partial depending on the amount of p
 
 # 25. Partial Resolution State
 
-PARTIAL is a first-class resolution state throughout the Set Math layer.
+PARTIAL is a first-class resolution state throughout the Set Math layer. Legal transitions among the four public resolution states are governed by `RESOLUTION_TRANSITION_SEMANTICS.md`; a changed public classification requires a recorded material cause and recomputation of the active evidence state.
 
 Canonical distinction:
 
