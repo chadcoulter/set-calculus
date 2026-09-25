@@ -606,7 +606,7 @@ The prior invalidation remains provenance-bearing even when superseded.
 
 # 16. Reopening
 
-Reopening applies to an active closure receipt, not to a public-state label by itself.
+Reopening applies to an active closure receipt, not to a public-state label by itself. Closure-layer legality, receipt consumption, epoch increment, reclosure freshness, and closure-history composition are governed by `CLOSURE_REOPENING_ALGEBRA.md`.
 
 Therefore:
 
