@@ -337,6 +337,44 @@ items:
         - "A9 validation workflow and audit script exist."
     status: pending
 
+  - id: "A10"
+    gate: "A"
+    title: "Closure and reopening algebra"
+    required: true
+    owner: "Chad Coulter"
+    artifact_paths:
+      - "docs/set-calculus-core/CLOSURE_REOPENING_ALGEBRA.md"
+      - "docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md"
+      - "docs/set-calculus-core/RESOLUTION_TRANSITION_SEMANTICS.md"
+      - "docs/set-calculus-core/TRANSFORM_SEMANTICS.md"
+      - "docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md"
+      - "docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md"
+      - "scripts/audit_core_a10_closure_reopening_algebra.py"
+      - ".github/workflows/core-a10-closure-reopening-algebra.yml"
+    evidence:
+      pass:
+        - "CLOSE, EXTEND, REOPEN, RECLOSE, identity, and typed partial composition are explicit."
+        - "CLOSE is first-terminal and protected-residual constrained."
+        - "Duplicate CLOSE cannot emit a second identical active receipt."
+        - "REOPEN applies only to the active receipt and increments the epoch exactly once."
+        - "RECLOSE emits a fresh receipt and preserves prior closure/reopen history."
+        - "At most one closure receipt is active for a target history."
+        - "Closure-layer composition is associative where defined and noncommutative in general."
+        - "CLOSE and REOPEN are explicitly non-inverse and historical events are non-cancellable."
+        - "Provenance and evidence horizons are monotone."
+        - "Scoped/local closure does not automatically promote to larger relational closure."
+        - "A9 determines the public state after reopening."
+        - "The A10 closure/reopening algebra audit passes on the final integration head."
+      fail:
+        - "A duplicate, stale, or superseded receipt can be treated as newly active."
+        - "Epoch, evidence-horizon, or provenance order can move backward."
+        - "Reclosure can overwrite the prior closure event."
+        - "Closure scope expands without an explicit proof."
+      observed:
+        - "Canonical A10 closure/reopening algebra exists at docs/set-calculus-core/CLOSURE_REOPENING_ALGEBRA.md."
+        - "A10 validation workflow and audit script exist."
+    status: pending
+
   - id: "B1"
     gate: "B"
     title: "Executable core types"
@@ -738,7 +776,7 @@ items:
       - "CORE_0.1_COMPLETENESS_CHECKLIST.yaml"
     evidence:
       pass:
-        - "A1-A9 and G1-G2 all have status pass."
+        - "A1-A10 and G1-G2 all have status pass."
       fail:
         - "Any required specification or consistency item is not pass."
       observed: []
@@ -753,6 +791,7 @@ items:
       - "A7"
       - "A8"
       - "A9"
+      - "A10"
       - "G1"
       - "G2"
 
