@@ -61,6 +61,7 @@ Define each primitive independently of programming-language implementation, then
 ## Active formalizations
 
 - `TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md` - trajectory admissibility, composition, boundary compatibility, representation structures, depth-indexed requirements, requirement entailment, and supported resolution depth.
+- `RESOLUTION_CLOSURE_AND_REOPENING.md` - first-terminal-prefix closure, closure receipts, resolution epochs, evidence-driven reopening, protected residual conservation, and provenance-preserving reclosure.
 - `ANCHOR_FOUNDATIONAL_SPACE.md` - minimal foundational resolution-space substrate, primitive objects, notation, reconciliation states, closure, provenance, and Anchor axioms.
 - `RESOLUTION_TRANSITION_PROBLEM.md` - finite decision problem over an Anchor projection; canonical linear certificate bound and polynomial verifier establish bounded RTP membership in NP.
 - `RTP_NP_HARDNESS_REDUCTION.md` - candidate polynomial-time many-one reduction from 3SAT to RTP, including construction, completeness/soundness argument, and explicit proof obligations.
@@ -76,3 +77,9 @@ Define each primitive independently of programming-language implementation, then
 - `RTP_VERIFIER_STATE_SIZE.md` - proves every canonical verifier state has size `O(N^2)` and derives a uniform conservative `O(N^5)` verifier bound for general RTP.
 
 - `RTP_CERTIFICATE_CONSTANT_8.md` - gives the exact canonical certificate serialization and proves `|C| <= 8N^2` for every canonical instance, establishing `c_RTP = 8` without hidden asymptotic constants.
+
+
+## Core consistency evidence
+
+- `../audits/CORE_0.1_G1_CONSISTENCY_AUDIT.md` - repository-wide G1 audit tying the historical three-state/five-witness material to the current six-witness/four-state Core and the closure/reopening layer.
+- `../../scripts/audit_core_g1_consistency.py` - executable repository-wide G1 scanner used by `.github/workflows/core-g1-consistency-audit.yml`.
