@@ -142,8 +142,13 @@ If ownership changes, update this table without rewriting the mathematical requi
 - [ ] **A5 PASS — Transform is specified strongly enough for independent implementation.**
   - **Owner:** Chad Coulter
   - **Required artifacts:**
+    - `docs/set-calculus-core/TRANSFORM_SEMANTICS.md`
     - `docs/set-calculus-core/README.md`
-    - canonical transform specification to be added under `docs/set-calculus-core/`
+    - `docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md`
+    - `docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md`
+    - `docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md`
+    - `scripts/audit_core_a5_transform_semantics.py`
+    - `.github/workflows/core-a5-transform-semantics.yml`
   - **Minimum required semantics:**
     ```text
     applicability
@@ -162,10 +167,15 @@ If ownership changes, update this table without rewriting the mathematical requi
     ```
   - **PASS evidence:**
     - two independent implementers can determine whether `T2 o T1` is legal from the specification alone;
-    - transform-produced properties are never projected backward without an explicit rule.
+    - transform-produced properties are never projected backward without an explicit rule;
+    - declared change remains distinct from authorized change;
+    - successful, failed, reversed, and composed Transforms preserve reconstructible provenance;
+    - closure-producing Transforms obey terminal, reopening, and protected-residual rules;
+    - the A5 Transform-semantics audit passes on the final integration head.
   - **FAIL evidence:**
     - transform composition depends on undocumented convention;
-    - reversibility or preservation behavior is implicit.
+    - reversibility or preservation behavior is implicit;
+    - a Transform can bypass six-witness boundary validation, provenance continuity, or protected-residual conservation.
 
 ## A6. Trajectory and boundary semantics
 
@@ -658,10 +668,13 @@ This section records the current checkpoint and should be updated as gates close
 - [x] Provenance policy exists.
   - Evidence: `PROVENANCE.md`
 
+- [x] Canonical Transform contract exists.
+  - Evidence: `docs/set-calculus-core/TRANSFORM_SEMANTICS.md`
+
 ## Known open release blockers
 
 - [ ] Legacy three-state/five-witness material has been fully normalized.
-- [ ] Transform semantics are complete enough for independent implementation.
+- [ ] A5 Transform semantics await maintainer PASS decision.
 - [ ] Structural proof rules are classified.
 - [ ] Resolution-transition semantics are closed.
 - [ ] Reference implementation exists.
