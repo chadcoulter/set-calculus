@@ -70,6 +70,7 @@ Define each primitive independently of programming-language implementation, then
 - `TRANSFORM_SEMANTICS.md` - canonical A5 Transform contract covering applicability, input requirements, output guarantees, preservation, declared change, provenance, failure, composition, identity, reversibility, and closure-producing behavior.
 - `STRUCTURAL_PROOF_RULES.md` - canonical A8 statuses and restrictions for weakening, contraction, exchange, cut, and substitution across provenance-bearing proof contexts.
 - `RESOLUTION_TRANSITION_SEMANTICS.md` - canonical A9 public-state transition contract covering material cause, reclassification, supersession, reopening, and provenance-preserving transitions among UNRESOLVED, PARTIAL, VALID, and INVALID.
+- `CLOSURE_REOPENING_ALGEBRA.md` - canonical A10 partial algebra for CLOSE, EXTEND, REOPEN, RECLOSE, epoch/receipt order, scoped closure, and provenance-preserving closure history.
 - `RESOLUTION_CLOSURE_AND_REOPENING.md` - first-terminal-prefix closure, closure receipts, resolution epochs, evidence-driven reopening, protected residual conservation, and provenance-preserving reclosure.
 - `ANCHOR_FOUNDATIONAL_SPACE.md` - minimal foundational resolution-space substrate, primitive objects, notation, reconciliation states, closure, provenance, and Anchor axioms.
 - `RESOLUTION_TRANSITION_PROBLEM.md` - finite decision problem over an Anchor projection; canonical linear certificate bound and polynomial verifier establish bounded RTP membership in NP.
