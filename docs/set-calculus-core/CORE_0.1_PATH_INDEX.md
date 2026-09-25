@@ -31,6 +31,7 @@ A missing required artifact remains missing. The index must not substitute a nea
 | Resolution closure and reopening | PRESENT | `docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md` | A9 closure, reopening, reclassification, residual-conservation, and provenance behavior |
 | RTP decision formalization | PRESENT | `docs/set-calculus-core/RESOLUTION_TRANSITION_PROBLEM.md` | Finite RTP decision layer and verifier model |
 | Core entry point | PRESENT | `docs/set-calculus-core/README.md` | Core directory entry point required by G2 |
+| Specification audit | PRESENT | `docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md` | A1-A4, A6, and A7 specification evidence and repaired-gap record |
 | G1 consistency audit | PRESENT | `docs/audits/CORE_0.1_G1_CONSISTENCY_AUDIT.md` | G1 repository-consistency evidence |
 | Provenance policy | PRESENT | `PROVENANCE.md` | F1 repository provenance policy |
 | Machine-readable provenance guide | PRESENT | `docs/provenance/README.md` | Entry point for machine-readable provenance |
