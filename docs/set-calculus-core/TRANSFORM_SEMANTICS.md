@@ -729,6 +729,8 @@ Output production alone is insufficient.
 
 # 17. Closure-producing Transforms
 
+Closure-layer execution is governed by `CLOSURE_REOPENING_ALGEBRA.md`. A Transform may make CLOSE eligible, but it cannot bypass the A10 operation domain, duplicate-receipt law, epoch law, or protected-residual law.
+
 The closure effect is:
 
 ```text
@@ -895,7 +897,23 @@ A5 Transform legality therefore depends on both the Transform contract and valid
 
 ---
 
-# 22. A5 release evidence boundary
+# 22. Resolution-transition interaction
+
+A successful Transform may change the material resolution basis. Public-state changes caused by Transform results are governed by `RESOLUTION_TRANSITION_SEMANTICS.md`.
+
+```text
+TransformResult
++ admitted material effect
+-> recompute ρ
+-> Project_Q(ρ)
+-> witnessed public-state transition, if classification changes
+```
+
+A Transform failure does not directly assign `VALID`, `PARTIAL`, `UNRESOLVED`, or `INVALID`. Its retained evidence participates in the normal A9 transition and projection rules.
+
+---
+
+# 23. A5 release evidence boundary
 
 This document supplies the canonical Transform semantics required by Core 0.1 A5.
 
