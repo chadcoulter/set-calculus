@@ -25,6 +25,7 @@ REQUIRED_CATEGORIES = {
     "Trajectory and resolution formalization",
     "Transform semantics",
     "Structural proof rules",
+    "Resolution transition semantics",
     "Resolution closure and reopening",
     "Core entry point",
     "G1 consistency audit",
