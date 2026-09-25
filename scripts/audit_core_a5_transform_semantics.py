@@ -19,6 +19,7 @@ REQUIRED_FILES = (
     Path("docs/set-calculus-core/CORE_0.1_PATH_INDEX.md"),
     Path("CORE_0.1_COMPLETENESS_CHECKLIST.md"),
     Path("CORE_0.1_COMPLETENESS_CHECKLIST.yaml"),
+    Path("scripts/audit_core_g2_path_index.py"),
 )
 
 REQUIRED_SPEC_TOKENS = (
@@ -105,6 +106,10 @@ def validate(root: Path) -> dict[str, object]:
 
     if "reversible != provenance-erasing" not in spec:
         errors.append("reversibility/provenance distinction missing")
+
+    g2_audit = (root / "scripts/audit_core_g2_path_index.py").read_text(encoding="utf-8")
+    if '"Transform semantics"' not in g2_audit:
+        errors.append("G2 path audit does not require Transform semantics")
 
     return {
         "errors": errors,
