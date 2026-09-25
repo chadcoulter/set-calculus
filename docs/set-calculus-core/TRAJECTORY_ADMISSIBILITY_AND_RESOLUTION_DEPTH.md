@@ -3022,6 +3022,8 @@ resolved scope empty
 
 ## 27.9 Tie-break sequent calculus
 
+Structural manipulation of the proof context is governed by `STRUCTURAL_PROOF_RULES.md`. Weakening, contraction, exchange, cut, and substitution are all RESTRICTED and may be used only when their rule-specific provenance, scope, dependency, identity, ordering, Context, Authority, conflict, and epoch conditions validate.
+
 The canonical conflict sequent has the form:
 
 ```text
