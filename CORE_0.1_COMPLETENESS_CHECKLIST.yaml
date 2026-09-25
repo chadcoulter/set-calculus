@@ -124,6 +124,8 @@ items:
     artifact_paths:
       - "docs/set-calculus-core/README.md"
       - "docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md"
+      - "docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md"
+      - "scripts/audit_core_specification_a1_a4_a6_a7.py"
     evidence:
       pass:
         - "Exactly one active canonical definition exists for Set, Member, Relationship, Identity, State, Transform, Resolution, and Provenance."
@@ -135,8 +137,10 @@ items:
         - "Two active canonical sections define the same primitive incompatibly."
         - "Identity remains embedded in State as the canonical model."
       observed:
-        - "Canonical terminology ledger exists."
-    status: pending
+        - "All eight Core primitives have exactly one canonical terminology-ledger row."
+        - "The Core README lists the canonical primitive set and explicitly states Identity != State."
+        - "The combined A1-A4/A6/A7 specification audit and strict G1 scan are required validation."
+    status: pass
 
   - id: "A2"
     gate: "A"
@@ -146,6 +150,8 @@ items:
     artifact_paths:
       - "docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md"
       - "docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md"
+      - "docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md"
+      - "scripts/audit_core_specification_a1_a4_a6_a7.py"
     evidence:
       pass:
         - "P, N, and C have explicit construction semantics."
@@ -157,9 +163,10 @@ items:
         - "Any active canonical rule still assumes only VALID/UNRESOLVED/INVALID."
         - "The same normalized evidence state can produce multiple public states without an explicit conflict-resolution rule."
       observed:
-        - "Three-axis resolution and four-state projection are anchored in the working formalization."
-        - "Legacy three-state material remains in earlier active sections."
-    status: blocked
+        - "rho=<P,N,C> has deterministic normalized construction semantics over materially relevant obligations."
+        - "Product partial order, join, meet, incomparability, and four-state projection structures are active."
+        - "Legacy three-state material is explicitly historical and the strict G1 scan reports no active contradiction."
+    status: pass
 
   - id: "A3"
     gate: "A"
@@ -168,6 +175,8 @@ items:
     owner: "Chad Coulter"
     artifact_paths:
       - "docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md"
+      - "docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md"
+      - "scripts/audit_core_specification_a1_a4_a6_a7.py"
     evidence:
       pass:
         - "DecisivePositive and DecisiveNegative are independently defined."
@@ -179,7 +188,8 @@ items:
         - "INVALID is defined merely as absence of positive proof."
         - "One polarity wins by default."
       observed:
-        - "Independent D+ and D- predicates and Constructive Positive Closure are anchored."
+        - "Independent D+ and D- predicates, Constructive Positive Closure, and scoped decisive conflict are active."
+        - "The combined specification audit confirms no negative-exhaustion premise."
     status: pass
 
   - id: "A4"
@@ -189,6 +199,8 @@ items:
     owner: "Chad Coulter"
     artifact_paths:
       - "docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md"
+      - "docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md"
+      - "scripts/audit_core_specification_a1_a4_a6_a7.py"
     evidence:
       pass:
         - "Identity, State, Context, Authority, Invariant, and Provenance each have a typed witness payload."
@@ -200,9 +212,10 @@ items:
         - "Identity is represented as a State relation."
         - "A required witness lacks validation semantics."
       observed:
-        - "Six-witness model is anchored."
-        - "Earlier active sections still contain five-witness definitions."
-    status: blocked
+        - "All six witness types now have active canonical typed payloads."
+        - "The active witness envelope and ValidateWitness6 use VALID/PARTIAL/UNRESOLVED/INVALID."
+        - "ValidateBoundary6 aggregates Identity, State, Context, Authority, Invariant, and Provenance."
+    status: pass
 
   - id: "A5"
     gate: "A"
@@ -241,6 +254,8 @@ items:
     owner: "Chad Coulter"
     artifact_paths:
       - "docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md"
+      - "docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md"
+      - "scripts/audit_core_specification_a1_a4_a6_a7.py"
     evidence:
       pass:
         - "Trajectory pi=<s0,T1,s1,...,Tn,sn> is canonical."
@@ -252,9 +267,9 @@ items:
         - "Active trajectory algebra still uses the obsolete three-state table as canonical."
         - "Boundary compatibility omits Identity."
       observed:
-        - "Trajectory and concatenation semantics exist."
-        - "Earlier active sections remain three-state and omit Identity."
-    status: blocked
+        - "Adm4 and the canonical concatenation law explicitly use the four-valued operator and ValidateBoundary6."
+        - "Local admissibility does not imply concatenated admissibility and PARTIAL preserves positive resolved structure."
+    status: pass
 
   - id: "A7"
     gate: "A"
@@ -263,6 +278,8 @@ items:
     owner: "Chad Coulter"
     artifact_paths:
       - "docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md"
+      - "docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md"
+      - "scripts/audit_core_specification_a1_a4_a6_a7.py"
     evidence:
       pass:
         - "Admissible-rule formation is defined."
@@ -274,7 +291,8 @@ items:
         - "A tie-break may select a result without a sound rule."
         - "Unresolved maximal-rule disagreement is forced into VALID or INVALID."
       observed:
-        - "Tie-break sequent calculus is anchored as a working proof calculus."
+        - "Admissible-rule formation, precedence, maximal-rule selection, four conflict outcomes, and provenance preservation are active."
+        - "The combined specification audit confirms the canonical sequent calculus."
     status: pass
 
   - id: "A8"
