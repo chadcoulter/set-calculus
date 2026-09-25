@@ -1,0 +1,60 @@
+name: Core Specification Audit A1-A4 A6 A7
+
+on:
+  push:
+    paths:
+      - "CORE_0.1_COMPLETENESS_CHECKLIST.md"
+      - "CORE_0.1_COMPLETENESS_CHECKLIST.yaml"
+      - "docs/set-calculus-core/README.md"
+      - "docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md"
+      - "docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md"
+      - "docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md"
+      - "scripts/audit_core_specification_a1_a4_a6_a7.py"
+      - "scripts/audit_core_g1_consistency.py"
+      - ".github/workflows/core-specification-audit-a1-a4-a6-a7.yml"
+  pull_request:
+    paths:
+      - "CORE_0.1_COMPLETENESS_CHECKLIST.md"
+      - "CORE_0.1_COMPLETENESS_CHECKLIST.yaml"
+      - "docs/set-calculus-core/README.md"
+      - "docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md"
+      - "docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md"
+      - "docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md"
+      - "scripts/audit_core_specification_a1_a4_a6_a7.py"
+      - "scripts/audit_core_g1_consistency.py"
+      - ".github/workflows/core-specification-audit-a1-a4-a6-a7.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Validate specification gates A1-A4 A6 A7
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compile audits
+        run: |
+          python -m py_compile scripts/audit_core_specification_a1_a4_a6_a7.py
+          python -m py_compile scripts/audit_core_g1_consistency.py
+
+      - name: Validate active specification gates
+        run: python scripts/audit_core_specification_a1_a4_a6_a7.py
+
+      - name: Reject active legacy contradictions
+        run: python scripts/audit_core_g1_consistency.py --strict
+
+      - name: Capture structured specification evidence
+        if: always()
+        run: |
+          python scripts/audit_core_specification_a1_a4_a6_a7.py --json
+          python scripts/audit_core_g1_consistency.py --json
