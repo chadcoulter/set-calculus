@@ -53,11 +53,15 @@ If ownership changes, update this table without rewriting the mathematical requi
     Resolution
     Provenance
     ```
+    - `docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md`
+    - `scripts/audit_core_specification_a1_a4_a6_a7.py`
+    - `.github/workflows/core-specification-audit-a1-a4-a6-a7.yml`
   - **PASS evidence:**
     - exactly one active canonical definition per primitive;
     - aliases explicitly identified;
     - `Identity != State` is explicit;
     - repository-wide terminology audit finds no incompatible active definitions.
+    - the combined A1-A4/A6/A7 specification audit passes and the strict G1 legacy audit reports zero active contradictions;
   - **FAIL evidence:**
     - any primitive remains undefined;
     - two active canonical sections define the same primitive incompatibly;
@@ -81,12 +85,15 @@ If ownership changes, update this table without rewriting the mathematical requi
     UNRESOLVED
     INVALID
     ```
+    - `docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md`
+    - `scripts/audit_core_specification_a1_a4_a6_a7.py`
   - **PASS evidence:**
     - P, N, and C have explicit construction semantics;
     - product partial order, join, meet, and incomparability are defined;
     - projection from `rho` to the four public states is deterministic under the active rule profile;
     - `PARTIAL != UNRESOLVED` everywhere;
     - obsolete three-state sections are removed, rewritten, or explicitly marked historical.
+    - the combined A1-A4/A6/A7 specification audit passes and the strict G1 legacy audit reports zero active contradictions;
   - **FAIL evidence:**
     - any active canonical rule still assumes only VALID/UNRESOLVED/INVALID;
     - the same normalized evidence state can produce multiple public states without an explicit conflict-resolution rule.
@@ -95,7 +102,10 @@ If ownership changes, update this table without rewriting the mathematical requi
 
 - [ ] **A3 PASS — Decisive Positive and Decisive Negative are independently defined.**
   - **Owner:** Chad Coulter
-  - **Required artifact:** `docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md`
+  - **Required artifacts:**
+    - `docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md`
+    - `docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md`
+    - `scripts/audit_core_specification_a1_a4_a6_a7.py`
   - **Required laws:**
     ```text
     DecisivePositive != !DecisiveNegative
@@ -108,6 +118,7 @@ If ownership changes, update this table without rewriting the mathematical requi
     - Constructive Positive Closure can derive VALID from sufficient positive witnesses;
     - no premise requires exhaustive elimination of negative alternatives;
     - overlapping `D+ ∧ D-` creates a decisive conflict object rather than silently preferring polarity.
+    - the combined A1-A4/A6/A7 specification audit passes and the strict G1 legacy audit reports zero active contradictions;
   - **FAIL evidence:**
     - VALID requires proving that no decisive-negative alternative exists;
     - INVALID is defined merely as absence of positive proof;
@@ -117,7 +128,10 @@ If ownership changes, update this table without rewriting the mathematical requi
 
 - [ ] **A4 PASS — All six boundary witness types are canonical.**
   - **Owner:** Chad Coulter
-  - **Required artifact:** `docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md`
+  - **Required artifacts:**
+    - `docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md`
+    - `docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md`
+    - `scripts/audit_core_specification_a1_a4_a6_a7.py`
   - **Required witness types:**
     ```text
     IDENTITY
@@ -132,6 +146,7 @@ If ownership changes, update this table without rewriting the mathematical requi
     - cardinality, nullability, and relation-specific evidence are defined;
     - VALID/PARTIAL/UNRESOLVED/INVALID outcomes are defined;
     - aggregate boundary validation includes all six.
+    - the combined A1-A4/A6/A7 specification audit passes and the strict G1 legacy audit reports zero active contradictions;
   - **FAIL evidence:**
     - any active section still says there are five witness types;
     - Identity is still represented as a State relation;
@@ -181,13 +196,17 @@ If ownership changes, update this table without rewriting the mathematical requi
 
 - [ ] **A6 PASS — Trajectory semantics use the current six-witness/four-state model throughout.**
   - **Owner:** Chad Coulter
-  - **Required artifact:** `docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md`
+  - **Required artifacts:**
+    - `docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md`
+    - `docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md`
+    - `scripts/audit_core_specification_a1_a4_a6_a7.py`
   - **PASS evidence:**
     - trajectory form `pi=<s0,T1,s1,...,Tn,sn>` is canonical;
     - concatenation requires boundary validation;
     - boundary validation uses Identity, State, Context, Authority, Invariant, and Provenance;
     - local admissibility does not imply concatenated admissibility;
     - partial trajectory resolution preserves known resolved structure.
+    - the combined A1-A4/A6/A7 specification audit passes and the strict G1 legacy audit reports zero active contradictions;
   - **FAIL evidence:**
     - active trajectory algebra still uses the obsolete three-state table as canonical;
     - boundary compatibility omits Identity.
@@ -196,7 +215,10 @@ If ownership changes, update this table without rewriting the mathematical requi
 
 - [ ] **A7 PASS — Decisive conflicts have a complete formal tie-break calculus.**
   - **Owner:** Chad Coulter
-  - **Required artifact:** `docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md`
+  - **Required artifacts:**
+    - `docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md`
+    - `docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md`
+    - `scripts/audit_core_specification_a1_a4_a6_a7.py`
   - **Required sequent form:**
     ```text
     Gamma ; Q |-Omega kappa
@@ -207,6 +229,7 @@ If ownership changes, update this table without rewriting the mathematical requi
     - maximal-rule selection is defined;
     - global positive, global negative, partial, and unresolved conflict rules are defined;
     - losing rules/witnesses remain preserved in provenance.
+    - the combined A1-A4/A6/A7 specification audit passes and the strict G1 legacy audit reports zero active contradictions;
   - **FAIL evidence:**
     - a tie-break may select a result without a sound rule;
     - unresolved maximal-rule disagreement is forced into VALID or INVALID.
@@ -741,6 +764,10 @@ This section records the current checkpoint and should be updated as gates close
 
 - [x] Canonical structural proof-rule contract exists.
   - Evidence: `docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md`
+
+- [x] A1-A4/A6/A7 specification audit exists and passes.
+  - Evidence: `docs/audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md`
+  - Validation: `scripts/audit_core_specification_a1_a4_a6_a7.py`
 
 - [x] Canonical resolution-transition contract exists.
   - Evidence: `docs/set-calculus-core/RESOLUTION_TRANSITION_SEMANTICS.md`
