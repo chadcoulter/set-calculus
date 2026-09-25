@@ -4,7 +4,7 @@
 
 Canonical finite decision problem over an Anchor projection.
 
-RTP is the computational decision problem currently extracted from the Anchor foundational space. This document establishes a polynomial certificate and verifier for the bounded canonical RTP, hence membership in NP. NP-hardness and NP-completeness remain open proof obligations.
+RTP is the computational decision problem extracted from the Anchor foundational space. Under the frozen `RTP-ENC-v1` representation, RTP has polynomially bounded certificates and deterministic polynomial verification, so `RTP in NP`. The completed reduction in `RTP_NP_HARDNESS_REDUCTION.md` establishes `3SAT <=p RTP`, hence RTP is NP-hard. Therefore the canonical bounded RTP is NP-complete.
 
 ## 1. Instance
 
@@ -19,8 +19,8 @@ where:
 - `G = <V,E>` is a finite directed relational graph;
 - `chi : V -> Z^n` is an optional lattice-coordinate assignment;
 - `Sigma_A = {OPEN, DIVERGED, RECONCILED, CLOSED}`;
-- `R` is a finite collection of polynomial-time-checkable resolution constraints;
-- `B` is a finite collection of closure boundaries;
+- `R` is a finite collection of descriptors referencing immutable schemas in `RTP-RULES-v1`;
+- `B` is a finite collection of descriptors referencing immutable schemas in `RTP-BOUNDARIES-v1`;
 - `s in V` is the finite representative of the positive-pole side;
 - `t in V` is the finite representative of the negative-pole side;
 - `K subseteq V` is the Klein transition region;
@@ -30,10 +30,10 @@ where:
 Let:
 
 ```text
-N = |<I>|
+N = |RTP-ENC-v1(I)|
 ```
 
-be the bit length of the encoded instance.
+be the bit length of the canonical encoded instance. The encoding is frozen in `RTP_CANONICAL_ENCODING_AND_SIZE_PROOFS.md`.
 
 ## 2. Formal language
 
@@ -41,12 +41,18 @@ be the bit length of the encoded instance.
 RTP = {
   <I> |
   exists C:
-    |C| <= c N^2
+    |C| <= 8 N^2
     and V_RTP(I,C) = 1
 }
 ```
 
-for a fixed encoding-dependent constant `c`.
+where the exact canonical constant:
+
+```text
+c_RTP = 8
+```
+
+is derived in `RTP_CERTIFICATE_CONSTANT_8.md` from the fixed-width certificate serialization and the bounds `m <= N`, `|delta_i| <= N`, and `|omega_i| <= N`.
 
 ## 3. Certificate
 
@@ -111,13 +117,19 @@ including trajectory indices and delimiters.
 
 ### R1. Encoding validity
 
-`I` is a well-formed finite RTP instance and every primitive rule used by `R` or `B` is decidable in polynomial time.
+`I` is a well-formed finite RTP instance under `RTP-ENC-v1`; every rule descriptor references `RTP-RULES-v1`, every boundary descriptor references `RTP-BOUNDARIES-v1`, and unknown or executable instance-defined semantics are rejected.
 
 ### R2. Certificate bound
 
 ```text
 m <= N
-|C| <= c N^2
+|C| <= 8 N^2
+```
+
+The exact serialization satisfies the stronger envelope:
+
+```text
+|C| <= 5N^2 + 2N + 1.
 ```
 
 ### R3. Endpoint validity
@@ -191,7 +203,7 @@ The verifier:
 
 1. parses and validates `I`;
 2. computes `N = |<I>|`;
-3. rejects if `m > N` or `|C| > cN^2`;
+3. rejects if `m > N` or `|C| > 8N^2`;
 4. initializes the state from `sigma_0`;
 5. checks each of at most `N` certificate transitions;
 6. validates edge, rule, boundary, relational, and provenance conditions;
@@ -201,38 +213,70 @@ The verifier:
 
 ## 6. Verifier complexity
 
-Suppose one transition can be verified in:
+Canonical verifier semantics are frozen by:
 
 ```text
-O(N^q)
+RTP-ENC-v1
+RTP-RULES-v1
+RTP-BOUNDARIES-v1
 ```
 
-for some fixed constant `q`.
-
-There are at most `N` transitions, so:
+The registry specification in `RTP_CANONICAL_VERIFIER_REGISTRIES.md` proves one common primitive bound:
 
 ```text
-T_V(N) = O(N^(q+1))
+T_primitive(W_i) = O(W_i^2)
 ```
 
-Under a conservative implementation with:
+for:
 
 ```text
-q = 2
+W_i =
+N
++ |Enc(S_i)|
++ |Enc(delta_i)|
++ |Enc(omega_i)|.
+```
+
+The state-size theorem in `RTP_VERIFIER_STATE_SIZE.md` proves:
+
+```text
+|Enc(S_i)| = O(N^2).
+```
+
+Since:
+
+```text
+|delta_i| <= N
+|omega_i| <= N
 ```
 
 we obtain:
 
 ```text
-T_V(N) = O(N^3)
+W_i = O(N^2)
 ```
+
+and therefore:
+
+```text
+T_transition(N) = O(N^4).
+```
+
+There are at most `N` transitions, so:
+
+```text
+T_V(N) = O(N^5).
+```
+
+This is a deliberately conservative uniform bound. The exponent and registry semantics are fixed independently of the instance.
 
 Hence the bounded canonical RTP has:
 
 ```text
 trajectory = O(N)
 certificate = O(N^2)
-verification = polynomial
+verifier state = O(N^2)
+verification = O(N^5)
 ```
 
 and therefore:
@@ -243,20 +287,17 @@ RTP in NP
 
 ## 7. Current complexity status
 
-Established for this bounded canonical definition:
+Established for the bounded canonical problem under `RTP-ENC-v1`:
 
 ```text
 RTP in NP
-```
-
-Not yet established:
-
-```text
+3SAT <=p RTP_SAT
+RTP_SAT is NP-hard
 RTP is NP-hard
 RTP is NP-complete
 ```
 
-A valid NP-completeness theorem requires a polynomial-time reduction from a known NP-complete language to RTP, together with proof that YES and NO instances are preserved.
+The reduction proof is in `RTP_NP_HARDNESS_REDUCTION.md`. Encoding and construction proofs are in `RTP_CANONICAL_ENCODING_AND_SIZE_PROOFS.md`. Uniform verifier semantics are in `RTP_CANONICAL_VERIFIER_REGISTRIES.md`, and the general verifier-state bound is in `RTP_VERIFIER_STATE_SIZE.md`.
 
 ## 8. Provenance naming boundary
 
@@ -266,4 +307,4 @@ This RTP/Anchor line arose within work identified by 100 Monkeys as the:
 100 Monkeys Photonic Model NP-Complete Solution
 ```
 
-That phrase is preserved as project/provenance identity. It is not used here as a theorem statement until NP-hardness is demonstrated.
+That phrase remains the project/provenance identity. The repository now separately establishes the formal theorem that the canonical bounded RTP under `RTP-ENC-v1` is NP-complete.
