@@ -329,6 +329,46 @@
       "notes": [
         "Freezes the canonical RTP encoding, discharges PO-1/PO-11/PO-12, and completes the NP-hardness/NP-completeness proof chain."
       ]
+    },
+    {
+      "id": "gr-ai-gamma:artifact:tenet-causal-cumulative-pass022",
+      "name": "TENET - Cumulative Causal Dossier PASS022 - Final TENET Closure",
+      "aliases": [
+        "TENET_CAUSAL_CUMULATIVE_PASS022_EN_20260925.pdf",
+        "TENET PASS022"
+      ],
+      "kind": "EXTERNAL_ARTIFACT",
+      "locator": "TENET_CAUSAL_CUMULATIVE_PASS022_EN_20260925.pdf",
+      "repository_ref": null,
+      "content_sha": "b684668af3b289984b01479f0733944b580a537bd51d4055986c247b4e8d43a2",
+      "version": "PASS022 - FINAL TENET CLOSURE",
+      "author": "S. D. Bolduc",
+      "date": "2026-09-25",
+      "epistemic_status": "OBSERVED",
+      "capture_status": "FULL",
+      "notes": [
+        "Registered source artifact."
+      ]
+    },
+    {
+      "id": "gr-ai-gamma:artifact:hypertriangle-v1-0-2",
+      "name": "The HyperTriangle",
+      "aliases": [
+        "HYPERTRIANGLE_FINAL_EN (1).pdf",
+        "HyperTriangle"
+      ],
+      "kind": "EXTERNAL_ARTIFACT",
+      "locator": "HYPERTRIANGLE_FINAL_EN (1).pdf",
+      "repository_ref": null,
+      "content_sha": "e47b94790a757c5dd0a7e3f53b92e1d2e941c32f61845d35ec26d2ccc710c466",
+      "version": "1.0.2",
+      "author": "S. D. Bolduc",
+      "date": "2026-09-25",
+      "epistemic_status": "OBSERVED",
+      "capture_status": "FULL",
+      "notes": [
+        "Registered source artifact."
+      ]
     }
   ],
   "passages": [
