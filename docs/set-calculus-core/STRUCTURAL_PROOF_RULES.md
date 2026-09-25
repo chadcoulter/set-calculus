@@ -622,7 +622,22 @@ A8-12 structural rules cannot bypass Transform or closure/reopening contracts
 
 ---
 
-# 16. A8 release evidence boundary
+# 16. Resolution-transition interaction
+
+Structural proof operations cannot create, suppress, or rewrite a public-state transition merely by changing proof shape.
+
+`RESOLUTION_TRANSITION_SEMANTICS.md` governs any reclassification whose proof basis is affected by weakening, contraction, exchange, cut, or substitution.
+
+```text
+structural proof change
+!-> material transition cause
+```
+
+A valid state change still requires an admissible material cause, recomputation, a transition witness, and provenance preservation.
+
+---
+
+# 17. A8 release evidence boundary
 
 This document supplies the explicit structural proof-rule statuses and restrictions required by Core 0.1 A8.
 
