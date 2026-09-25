@@ -26,6 +26,7 @@ REQUIRED_CATEGORIES = {
     "Transform semantics",
     "Structural proof rules",
     "Resolution transition semantics",
+    "Closure and reopening algebra",
     "Resolution closure and reopening",
     "Core entry point",
     "G1 consistency audit",
