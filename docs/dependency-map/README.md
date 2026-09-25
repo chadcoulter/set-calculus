@@ -49,3 +49,19 @@ This list is a starting inventory, not an asserted ordering.
 ## Evidence discipline
 
 For each proposed dependency, record why it is required. Course placement alone is not evidence of mathematical necessity.
+
+
+## Dependency class vocabulary
+
+Material dependency edges use the Core 0.1 E2 vocabulary:
+
+```text
+HARD
+STRONG
+SUPPORTING
+HISTORICAL/CURRICULAR
+```
+
+`NONE` is reserved for an explicitly tested non-dependency and is not an E2 dependency class.
+
+The current provisional classifications are recorded in `001-conventional-calculus-prerequisite-graph.md`. The executable vocabulary check is `../../scripts/audit_dependency_e2_class_vocabulary.py` and is enforced by `.github/workflows/dependency-e2-class-vocabulary.yml`.

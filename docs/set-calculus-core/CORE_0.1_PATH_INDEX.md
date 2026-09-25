@@ -34,6 +34,7 @@ A missing required artifact remains missing. The index must not substitute a nea
 | Machine-readable provenance catalog | PRESENT | `docs/provenance/SOURCE_CATALOG.json` | F2 source/passage/object/mapping catalog |
 | Provenance schema | PRESENT | `docs/provenance/PROVENANCE_SCHEMA.json` | F2 schema for provenance records |
 | Conventional dependency graph | PRESENT | `docs/dependency-map/001-conventional-calculus-prerequisite-graph.md` | E1-E3 dependency work |
+| Dependency class vocabulary | PRESENT | `docs/dependency-map/README.md` | E2 class vocabulary and audit entry point |
 | Conventional compatibility workspace | PRESENT | `docs/conventional-calculus/README.md` | D1-D4 compatibility workspace and record shape |
 | GGE executable specialization | PRESENT | `generative-governance-engine/README.md` | Executable IDGM/GGE work; not a substitute for Core B/C evidence |
 | Canonical conformance fixtures | MISSING_REQUIRED | `tests/conformance/` | C1 required artifact path |
@@ -53,7 +54,7 @@ For Core 0.1 review:
 5. Read `docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md` for terminal closure, reopening, protected residual conservation, and provenance-preserving reclosure.
 6. Read `docs/audits/CORE_0.1_G1_CONSISTENCY_AUDIT.md` for the current legacy-consistency evidence.
 7. Read `PROVENANCE.md`, `docs/provenance/README.md`, and `docs/provenance/SOURCE_REFERENCES.md` before making provenance claims or edits.
-8. Use `docs/conventional-calculus/README.md` and the dependency graph for the compatibility/curriculum track.
+8. Use `docs/conventional-calculus/README.md` and `docs/dependency-map/README.md` for the compatibility/curriculum track and E2 dependency-class vocabulary.
 9. Treat every `MISSING_REQUIRED` row as open release work, not as an implied or partially satisfied artifact.
 
 ## Integrity rule

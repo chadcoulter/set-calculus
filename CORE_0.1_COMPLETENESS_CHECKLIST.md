@@ -481,7 +481,11 @@ If ownership changes, update this table without rewriting the mathematical requi
 
 - [ ] **E2 PASS — Material dependency edges have explicit classes.**
   - **Owner:** Chad Coulter
-  - **Required artifact:** dependency graph or machine-readable companion file
+  - **Required artifacts:**
+    - `docs/dependency-map/001-conventional-calculus-prerequisite-graph.md`
+    - `docs/dependency-map/README.md`
+    - `scripts/audit_dependency_e2_class_vocabulary.py`
+    - `.github/workflows/dependency-e2-class-vocabulary.yml`
   - **Required classes:**
     ```text
     HARD
@@ -489,8 +493,11 @@ If ownership changes, update this table without rewriting the mathematical requi
     SUPPORTING
     HISTORICAL/CURRICULAR
     ```
-  - **PASS evidence:** every edge used to justify the proposed Core 0.1 teaching order has a class and rationale.
-  - **FAIL evidence:** a course-order assumption is used as mathematical dependency evidence without classification.
+  - **PASS evidence:**
+    - every edge used to justify the proposed Core 0.1 teaching order has one required class and a rationale;
+    - explicitly tested non-dependencies remain outside the E2 class set and may be recorded as `NONE`;
+    - the E2 class-vocabulary audit passes on the final integration head.
+  - **FAIL evidence:** a course-order assumption is used as mathematical dependency evidence without classification, or an edge is assigned a class outside the required vocabulary.
 
 ## E3. Dependency-derived teaching sequence
 
