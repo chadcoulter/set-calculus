@@ -622,7 +622,7 @@ resolution may close again
 
 # 9. Public state after reopening
 
-Reopening removes the active terminal classification.
+Reopening removes the active terminal classification. `RESOLUTION_TRANSITION_SEMANTICS.md` governs the resulting public-state transition, transition witness, reclassification, and supersession record.
 
 The ordinary Set Calculus resolution algebra then determines the new public state.
 
