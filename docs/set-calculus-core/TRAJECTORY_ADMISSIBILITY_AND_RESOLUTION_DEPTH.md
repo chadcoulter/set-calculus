@@ -2280,6 +2280,257 @@ A known contradiction is INVALID.
 
 Unknown compatibility remains unresolved or partial depending on the amount of positively resolved structure.
 
+## 24.3 Canonical six-witness typed payloads
+
+Sections 19-23 preserve the historical five-witness development path. The current six-witness model uses the following active payloads.
+
+### StateWitnessPayload
+
+```text
+StateWitnessPayload {
+    source_state              : StateRef          [1, non-null]
+    target_state_requirement  : StateRef          [1, non-null]
+    state_relation            : StateRelation     [1, non-null]
+    relation_evidence         : EvidenceRef       [1, non-null]
+    bridge_conditions         : ConditionRef      [0..*, non-null elements]
+}
+```
+
+with:
+
+```text
+StateRelation =
+    SAME_STATE
+  | COMPATIBLE_STATE
+  | PROJECTED_STATE
+```
+
+State compatibility does not establish Identity.
+
+```text
+StateCompatible
+!-> IdentityCompatible
+```
+
+### ContextWitnessPayload
+
+```text
+ContextWitnessPayload {
+    source_context       : ContextRef        [1, non-null]
+    target_context       : ContextRef        [1, non-null]
+    transition_type      : ContextTransition [1, non-null]
+    transition_evidence  : EvidenceRef       [1, non-null]
+    preserved_scope      : ScopeRef          [0..*, non-null elements]
+}
+```
+
+where:
+
+```text
+ContextTransition =
+    SAME_CONTEXT
+  | AUTHORIZED_CONTEXT_TRANSITION
+```
+
+### AuthorityWitnessPayload
+
+```text
+AuthorityWitnessPayload {
+    source_authority        : AuthorityRef  [1, non-null]
+    target_authority        : AuthorityRef  [1, non-null]
+    output_validity_evidence: EvidenceRef   [1, non-null]
+    acceptance_evidence     : EvidenceRef   [1, non-null]
+    next_transform          : TransformRef  [0..1]
+    transform_authorization : EvidenceRef   [0..1]
+}
+```
+
+If `next_transform` is present, `transform_authorization` is required exactly once. If no next Transform is present at the boundary, both conditional fields are absent.
+
+### InvariantWitnessPayload
+
+```text
+InvariantWitnessPayload {
+    invariant            : InvariantRef          [1, non-null]
+    requirement_source   : RequirementRef        [1, non-null]
+    boundary_value       : ValueOrStateRef       [1, non-null]
+    disposition          : InvariantDisposition  [1, non-null]
+    evidence             : EvidenceRef           [1, non-null]
+}
+```
+
+where:
+
+```text
+InvariantDisposition =
+    PRESERVED
+  | AUTHORIZED_CHANGE
+```
+
+The required invariant witness set contains exactly one materially applicable witness per required boundary invariant. An empty set is valid only when the active boundary has no required invariant obligations.
+
+### ProvenanceWitnessPayload
+
+```text
+ProvenanceWitnessPayload {
+    source_lineage                  : ProvenanceRef [1, non-null]
+    terminal_state_reference        : StateRef      [1, non-null]
+    boundary_evidence_reference     : EvidenceRef   [1, non-null]
+    target_provenance_requirements  : RequirementRef[0..*, non-null elements]
+    composition_rule                : RuleRef       [1, non-null]
+    composition_result              : ProvenanceRef [1, non-null]
+}
+```
+
+The composition result must preserve every materially required lineage item from the source and boundary evidence.
+
+The active six witness types are therefore:
+
+```text
+IDENTITY   -> IdentityWitnessPayload
+STATE      -> StateWitnessPayload
+CONTEXT    -> ContextWitnessPayload
+AUTHORITY  -> AuthorityWitnessPayload
+INVARIANT  -> InvariantWitnessPayload
+PROVENANCE -> ProvenanceWitnessPayload
+```
+
+## 24.4 Canonical witness envelope
+
+All six current witness types use:
+
+```text
+WitnessEnvelope<W> = {
+    witness_type       : WitnessType
+    claim              : ClaimRef
+    subject            : SubjectRef
+    boundary_reference : BoundaryRef
+    evidence           : EvidenceRef [0..*]
+    evidence_provenance: ProvenanceRef
+    rule_basis         : RuleRef
+    dependencies       : WitnessRef [0..*]
+    contradictions     : EvidenceRef [0..*]
+    status             : ResolutionStatus
+    resolution_record  : ResolutionRecordRef
+    payload            : W
+}
+```
+
+with:
+
+```text
+WitnessType ∈ {
+  IDENTITY,
+  STATE,
+  CONTEXT,
+  AUTHORITY,
+  INVARIANT,
+  PROVENANCE
+}
+
+ResolutionStatus ∈ {
+  VALID,
+  PARTIAL,
+  UNRESOLVED,
+  INVALID
+}
+```
+
+## 24.5 Canonical four-state witness validation
+
+Define:
+
+```text
+ValidateWitness6(W)
+-> {
+  VALID,
+  PARTIAL,
+  UNRESOLVED,
+  INVALID
+}
+```
+
+Validation checks, in order:
+
+```text
+schema validity
+boundary applicability
+claim completeness
+provenance validity
+dependency validity
+contradiction status
+typed payload validity
+resolution record
+```
+
+A known malformed required structure, positively wrong boundary/subject, invalid provenance, decisive invalid dependency, or typed contradiction yields `INVALID`.
+
+If no decisive invalidation exists:
+
+```text
+all materially required obligations positively resolved
+-> VALID
+
+some materially required obligations positively resolved
++ at least one materially required obligation unresolved
+-> PARTIAL
+
+no materially required obligation positively resolved
++ at least one materially required obligation unresolved
+-> UNRESOLVED
+```
+
+This validator preserves the distinction:
+
+```text
+PARTIAL != UNRESOLVED
+```
+
+## 24.6 Canonical six-witness boundary validation
+
+Let:
+
+```text
+E_B6 =
+<
+  W_identity,
+  W_state,
+  W_context,
+  W_authority,
+  W_invariant,
+  W_provenance
+>
+```
+
+Then:
+
+```text
+ValidateBoundary6(E_B6)
+=
+Map(ValidateWitness6(W_identity))
+⊗A
+Map(ValidateWitness6(W_state))
+⊗A
+Map(ValidateWitness6(W_context))
+⊗A
+Map(ValidateWitness6(W_authority))
+⊗A
+Map(ValidateWitness6(W_invariant))
+⊗A
+Map(ValidateWitness6(W_provenance))
+```
+
+using the current four-valued operator from Section 25.1 and:
+
+```text
+VALID      -> ADMISSIBLE
+PARTIAL    -> PARTIAL
+UNRESOLVED -> UNRESOLVED
+INVALID    -> INADMISSIBLE
+```
+
+All six witness dimensions participate in the active boundary result.
+
 ---
 
 # 25. Partial Resolution State
@@ -2494,6 +2745,64 @@ Epistemic status:
 - Six-witness boundary model: **working boundary formalization**
 - External novelty/equivalence claims: **not established**
 
+## 26.1 Canonical trajectory and concatenation semantics
+
+The current trajectory form is:
+
+```text
+π = <s0,T1,s1,...,Tn,sn>
+```
+
+For the current Core, trajectory admissibility is four-valued:
+
+```text
+Adm4(π | C,A)
+∈ {
+  ADMISSIBLE,
+  PARTIAL,
+  UNRESOLVED,
+  INADMISSIBLE
+}
+```
+
+For validly typed trajectory segments:
+
+```text
+π1 = <s0,...,sk>
+π2 = <sk',...,sn>
+```
+
+the canonical concatenation law is:
+
+```text
+Adm4(π1 ⊕ π2 | C,A)
+=
+Adm4(π1 | C,A)
+⊗A
+ValidateBoundary6(E_B6(π1,π2 | C,A))
+⊗A
+Adm4(π2 | C,A)
+```
+
+where `⊗A` is the Section 25.1 four-valued admissibility operator.
+
+Therefore:
+
+```text
+local admissibility
+!-> concatenated admissibility
+```
+
+and:
+
+```text
+PARTIAL trajectory
+retains positively resolved substructure
+while unresolved material obligations remain explicit
+```
+
+The historical three-state equations in Sections 2-4 are development records and do not override this current law.
+
 
 ---
 
@@ -2532,6 +2841,52 @@ For normalized coordinates:
 ```text
 P,N,C ∈ [0,1]
 ```
+
+### 27.1.1 Deterministic coordinate construction
+
+Let the active profile provide the finite materially relevant obligation set:
+
+```text
+O = {o1,...,om}
+```
+
+For each `o ∈ O`, define deterministic predicates over normalized admitted evidence:
+
+```text
+Pos(o) = 1 iff a valid positive proof object establishes o
+Neg(o) = 1 iff a valid negative proof object establishes or decisively violates o
+Done(o) = 1 iff the active rules have resolved the material disposition of o
+```
+
+Positive and negative support may coexist:
+
+```text
+Pos(o) = 1
+∧
+Neg(o) = 1
+```
+
+which preserves conflict rather than cancelling it.
+
+For `m = |O| > 0`:
+
+```text
+P = (Σ_o Pos(o)) / m
+N = (Σ_o Neg(o)) / m
+C = (Σ_o Done(o)) / m
+```
+
+For the vacuous profile `O = ∅`:
+
+```text
+P = 0
+N = 0
+C = 1
+```
+
+The decisive predicates `D+` and `D-` remain separate from these normalized support coordinates. The coordinates summarize admitted obligation-level information; decisive closure is determined by the active profile's proof conditions.
+
+Thus identical normalized evidence, obligation set, and active rule profile construct the same `ρ`.
 
 The product partial order is:
 

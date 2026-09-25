@@ -1,21 +1,6 @@
 name: Core A9 Resolution Transition Semantics
 
 on:
-  push:
-    paths:
-      - "CORE_0.1_COMPLETENESS_CHECKLIST.md"
-      - "CORE_0.1_COMPLETENESS_CHECKLIST.yaml"
-      - "docs/set-calculus-core/RESOLUTION_TRANSITION_SEMANTICS.md"
-      - "docs/set-calculus-core/README.md"
-      - "docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md"
-      - "docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md"
-      - "docs/set-calculus-core/TRANSFORM_SEMANTICS.md"
-      - "docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md"
-      - "docs/set-calculus-core/CORE_0.1_PATH_INDEX.md"
-      - "docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md"
-      - "scripts/audit_core_a9_resolution_transitions.py"
-      - "scripts/audit_core_g2_path_index.py"
-      - ".github/workflows/core-a9-resolution-transitions.yml"
   pull_request:
     paths:
       - "CORE_0.1_COMPLETENESS_CHECKLIST.md"
@@ -31,6 +16,9 @@ on:
       - "scripts/audit_core_a9_resolution_transitions.py"
       - "scripts/audit_core_g2_path_index.py"
       - ".github/workflows/core-a9-resolution-transitions.yml"
+
+  merge_group:
+    types: [checks_requested]
 
 permissions:
   contents: read

@@ -1,6 +1,6 @@
 # Set Calculus Core
 
-This directory will hold the canonical mathematical vocabulary and formal transform model.
+This directory holds the canonical Set Calculus Core mathematical vocabulary and formal contracts.
 
 ## Core 0.1 canonical path
 
@@ -8,19 +8,26 @@ See [`CORE_0.1_PATH_INDEX.md`](CORE_0.1_PATH_INDEX.md) for the repository-wide C
 
 The path index maps the active Core formalizations, consistency evidence, provenance material, compatibility work, and required-but-missing release artifacts. `CORE_0.1_COMPLETENESS_CHECKLIST.md` remains the canonical pass/fail authority.
 
-## Candidate primitives
+## Canonical primitives
+
+The canonical definitions are maintained in `../philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md`. This README lists the Core primitive set without redefining those terms.
 
 ```text
 Set
 Member
 Relationship
+Identity
 State
 Transform
 Resolution
 Provenance
 ```
 
-These names remain candidates until formally defined.
+Canonical distinction:
+
+```text
+Identity != State
+```
 
 ## Initial invariants
 
@@ -60,9 +67,9 @@ Candidate terminal or reportable states include:
 
 The exact vocabulary remains subject to formalization.
 
-## First formalization task
+## Primitive-definition authority
 
-Define each primitive independently of programming-language implementation, then express a minimal canonical example in both mathematical notation and machine-readable form.
+The canonical terminology ledger is the definition authority for Core primitive names. Formal contract files may refine operational semantics without creating competing primitive definitions.
 
 ## Active formalizations
 
@@ -91,5 +98,7 @@ Define each primitive independently of programming-language implementation, then
 
 ## Core consistency evidence
 
+- `../audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md` - focused audit of A1-A4, A6, and A7, including repaired primitive, resolution-coordinate, six-witness, and trajectory gaps.
+- `../../scripts/audit_core_specification_a1_a4_a6_a7.py` - executable validator for the audited specification gates.
 - `../audits/CORE_0.1_G1_CONSISTENCY_AUDIT.md` - repository-wide G1 audit tying the historical three-state/five-witness material to the current six-witness/four-state Core and the closure/reopening layer.
 - `../../scripts/audit_core_g1_consistency.py` - executable repository-wide G1 scanner used by `.github/workflows/core-g1-consistency-audit.yml`.
