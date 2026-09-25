@@ -729,6 +729,8 @@ Output production alone is insufficient.
 
 # 17. Closure-producing Transforms
 
+Closure-layer execution is governed by `CLOSURE_REOPENING_ALGEBRA.md`. A Transform may make CLOSE eligible, but it cannot bypass the A10 operation domain, duplicate-receipt law, epoch law, or protected-residual law.
+
 The closure effect is:
 
 ```text
