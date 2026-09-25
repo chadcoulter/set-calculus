@@ -27,6 +27,7 @@ A missing required artifact remains missing. The index must not substitute a nea
 | Transform semantics | PRESENT | `docs/set-calculus-core/TRANSFORM_SEMANTICS.md` | A5 canonical Transform contract and composition semantics |
 | Structural proof rules | PRESENT | `docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md` | A8 statuses and restrictions for weakening, contraction, exchange, cut, and substitution |
 | Resolution transition semantics | PRESENT | `docs/set-calculus-core/RESOLUTION_TRANSITION_SEMANTICS.md` | A9 material-cause, reclassification, supersession, reopening, and four-state transition semantics |
+| Closure and reopening algebra | PRESENT | `docs/set-calculus-core/CLOSURE_REOPENING_ALGEBRA.md` | A10 partial algebra for CLOSE, EXTEND, REOPEN, RECLOSE, epochs, receipts, scope, and closure-history composition |
 | Resolution closure and reopening | PRESENT | `docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md` | A9 closure, reopening, reclassification, residual-conservation, and provenance behavior |
 | RTP decision formalization | PRESENT | `docs/set-calculus-core/RESOLUTION_TRANSITION_PROBLEM.md` | Finite RTP decision layer and verifier model |
 | Core entry point | PRESENT | `docs/set-calculus-core/README.md` | Core directory entry point required by G2 |
@@ -57,11 +58,12 @@ For Core 0.1 review:
 5. Read `docs/set-calculus-core/TRANSFORM_SEMANTICS.md` for canonical Transform applicability, composition, preservation, reversibility, failure, provenance, and closure-producing semantics.
 6. Read `docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md` for weakening, contraction, exchange, cut, and substitution restrictions.
 7. Read `docs/set-calculus-core/RESOLUTION_TRANSITION_SEMANTICS.md` for the four-state transition matrix, material-cause rules, reclassification, supersession, and transition witnesses.
-8. Read `docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md` for terminal closure, reopening, protected residual conservation, and provenance-preserving reclosure.
-9. Read `docs/audits/CORE_0.1_G1_CONSISTENCY_AUDIT.md` for the current legacy-consistency evidence.
-10. Read `PROVENANCE.md`, `docs/provenance/README.md`, and `docs/provenance/SOURCE_REFERENCES.md` before making provenance claims or edits.
-11. Use `docs/conventional-calculus/README.md` and `docs/dependency-map/README.md` for the compatibility/curriculum track and E2 dependency-class vocabulary.
-12. Treat every `MISSING_REQUIRED` row as open release work, not as an implied or partially satisfied artifact.
+8. Read `docs/set-calculus-core/CLOSURE_REOPENING_ALGEBRA.md` for CLOSE, EXTEND, REOPEN, RECLOSE, epoch/receipt order, and closure-history composition.
+9. Read `docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md` for terminal closure, reopening, protected residual conservation, and provenance-preserving reclosure.
+10. Read `docs/audits/CORE_0.1_G1_CONSISTENCY_AUDIT.md` for the current legacy-consistency evidence.
+11. Read `PROVENANCE.md`, `docs/provenance/README.md`, and `docs/provenance/SOURCE_REFERENCES.md` before making provenance claims or edits.
+12. Use `docs/conventional-calculus/README.md` and `docs/dependency-map/README.md` for the compatibility/curriculum track and E2 dependency-class vocabulary.
+13. Treat every `MISSING_REQUIRED` row as open release work, not as an implied or partially satisfied artifact.
 
 ## Integrity rule
 
