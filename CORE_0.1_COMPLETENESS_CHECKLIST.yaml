@@ -283,15 +283,26 @@ items:
     required: true
     owner: "Chad Coulter"
     artifact_paths:
-      - "docs/set-calculus-core/"
+      - "docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md"
+      - "docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md"
+      - "docs/set-calculus-core/TRANSFORM_SEMANTICS.md"
+      - "docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md"
+      - "docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md"
+      - "scripts/audit_core_a8_structural_proof_rules.py"
+      - ".github/workflows/core-a8-structural-proof-rules.yml"
     evidence:
       pass:
-        - "Weakening, contraction, exchange, cut, and substitution each have exactly one declared status: ADMISSIBLE, RESTRICTED, NOT_ADMISSIBLE, or UNRESOLVED."
-        - "Restricted rules have explicit conditions."
-        - "Unresolved metatheory is labeled rather than silently assumed."
+        - "Weakening, contraction, exchange, cut, and substitution each have exactly one declared status."
+        - "All five Core 0.1 structural rules are RESTRICTED with explicit legality conditions."
+        - "Proof compression never deletes provenance."
+        - "Structural rules cannot erase conflict, identity, dependency, Transform order, closure/reopening epoch order, or unresolved obligations."
+        - "The A8 structural proof-rule audit passes on the final integration head."
       fail:
         - "An implementation must guess whether a structural proof operation is legal."
-      observed: []
+        - "A structural rule can manufacture resolution or erase materially required provenance."
+      observed:
+        - "Canonical A8 structural proof-rule contract exists at docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md."
+        - "A8 validation workflow and audit script exist."
     status: pending
 
   - id: "A9"
