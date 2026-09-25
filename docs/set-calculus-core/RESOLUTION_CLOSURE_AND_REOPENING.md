@@ -25,6 +25,8 @@ First-Terminal-Prefix Stopping
 Protected Residual Conservation
 ```
 
+The algebraic composition of closure, evidence extension, reopening, and reclosure is defined in `CLOSURE_REOPENING_ALGEBRA.md`. This document remains the source of the stopping, receipt, reopening, and protected-residual predicates used by that algebra.
+
 The first governs when resolution computation may stop and how a stopped result may later reopen.
 
 The second governs whether a proposed closure is admissible when other protected residuals exist.
@@ -1190,6 +1192,8 @@ or can later reach a new admissible closure.
 ---
 
 # 16. Canonical state machine
+
+The state machine below is given algebraic semantics by `CLOSURE_REOPENING_ALGEBRA.md`, including active-closure uniqueness, duplicate-close idempotence, single-reopen consumption, epoch monotonicity, and non-invertibility of CLOSE/REOPEN.
 
 ```text
 ACTIVE RESOLUTION
