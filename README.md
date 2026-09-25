@@ -113,6 +113,12 @@ docs/
   textbook/
 ```
 
+## Core 0.1 canonical path
+
+Use the [Core 0.1 canonical path index](docs/set-calculus-core/CORE_0.1_PATH_INDEX.md) to locate the current Core formalization, release checklist, consistency evidence, provenance model, conventional-calculus work, and required release artifacts.
+
+The index distinguishes artifacts that exist from artifacts the release checklist still requires. A listed path is navigational evidence only and does not declare a release gate passed.
+
 ## Initial milestones
 
 1. Capture canonical primitives and notation.
