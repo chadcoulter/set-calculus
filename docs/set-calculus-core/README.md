@@ -98,5 +98,7 @@ The canonical terminology ledger is the definition authority for Core primitive 
 
 ## Core consistency evidence
 
+- `../audits/CORE_0.1_SPECIFICATION_AUDIT_A1_A4_A6_A7.md` - focused audit of A1-A4, A6, and A7, including repaired primitive, resolution-coordinate, six-witness, and trajectory gaps.
+- `../../scripts/audit_core_specification_a1_a4_a6_a7.py` - executable validator for the audited specification gates.
 - `../audits/CORE_0.1_G1_CONSISTENCY_AUDIT.md` - repository-wide G1 audit tying the historical three-state/five-witness material to the current six-witness/four-state Core and the closure/reopening layer.
 - `../../scripts/audit_core_g1_consistency.py` - executable repository-wide G1 scanner used by `.github/workflows/core-g1-consistency-audit.yml`.
