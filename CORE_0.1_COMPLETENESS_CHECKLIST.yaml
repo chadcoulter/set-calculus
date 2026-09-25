@@ -210,17 +210,28 @@ items:
     required: true
     owner: "Chad Coulter"
     artifact_paths:
+      - "docs/set-calculus-core/TRANSFORM_SEMANTICS.md"
       - "docs/set-calculus-core/README.md"
-      - "docs/set-calculus-core/"
+      - "docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md"
+      - "docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md"
+      - "docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md"
+      - "scripts/audit_core_a5_transform_semantics.py"
+      - ".github/workflows/core-a5-transform-semantics.yml"
     evidence:
       pass:
         - "Applicability, input requirements, output guarantees, preserved properties, changed properties, provenance effect, failure state, composition, identity transform, reversibility classes, and closure-producing behavior are explicit."
         - "Two independent implementers can determine whether T2 o T1 is legal from the specification alone."
         - "Transform-produced properties are never projected backward without an explicit rule."
+        - "Declared change remains distinct from authorized change."
+        - "Transform composition requires six-witness boundary compatibility, provenance continuity, protected-residual conservation, and legal reopening after closure."
+        - "The A5 Transform-semantics audit passes on the final integration head."
       fail:
         - "Transform composition depends on undocumented convention."
         - "Reversibility or preservation behavior is implicit."
-      observed: []
+        - "A Transform can bypass boundary, provenance, residual-conservation, or reopening obligations."
+      observed:
+        - "Canonical Transform contract exists at docs/set-calculus-core/TRANSFORM_SEMANTICS.md."
+        - "A5 validation workflow and audit script exist."
     status: pending
 
   - id: "A6"
