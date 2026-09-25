@@ -557,7 +557,13 @@ If ownership changes, update this table without rewriting the mathematical requi
 
 - [ ] **G1 PASS — No active canonical contradiction remains between legacy and current formalization.**
   - **Owner:** Chad Coulter
-  - **Required artifacts:** repository-wide audit report and corrected files
+  - **Required artifacts:**
+    - `docs/audits/CORE_0.1_G1_CONSISTENCY_AUDIT.md`
+    - `docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md`
+    - `docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md`
+    - `docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md`
+    - `scripts/audit_core_g1_consistency.py`
+    - `.github/workflows/core-g1-consistency-audit.yml`
   - **Audit must search for at least:**
     ```text
     three-state admissibility as canonical
@@ -567,7 +573,11 @@ If ownership changes, update this table without rewriting the mathematical requi
     obsolete boundary aggregation
     three-valued witness-validation return type
     ```
-  - **PASS evidence:** zero unresolved active contradictions; historical material is clearly marked historical.
+  - **PASS evidence:**
+    - zero unresolved active contradictions;
+    - historical material is clearly marked historical/superseded;
+    - the six-witness/four-state trajectory model and closure/reopening model agree on active resolution-state behavior and provenance preservation;
+    - the strict G1 audit passes on the final integration head.
   - **FAIL evidence:** an independent implementer can reasonably choose two incompatible active rules from the repository.
 
 ## G2. Canonical path index
