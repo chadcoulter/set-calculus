@@ -245,7 +245,8 @@ items:
       observed:
         - "Canonical Transform contract exists at docs/set-calculus-core/TRANSFORM_SEMANTICS.md."
         - "A5 validation workflow and audit script exist."
-    status: pending
+        - "Core A5 Transform Semantics completed successfully after the A1-A4/A6/A7 specification repairs."
+    status: pass
 
   - id: "A6"
     gate: "A"
@@ -321,7 +322,8 @@ items:
       observed:
         - "Canonical A8 structural proof-rule contract exists at docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md."
         - "A8 validation workflow and audit script exist."
-    status: pending
+        - "Core A8 Structural Proof Rules completed successfully after the A1-A4/A6/A7 specification repairs."
+    status: pass
 
   - id: "A9"
     gate: "A"
@@ -353,7 +355,8 @@ items:
       observed:
         - "Canonical A9 resolution-transition contract exists at docs/set-calculus-core/RESOLUTION_TRANSITION_SEMANTICS.md."
         - "A9 validation workflow and audit script exist."
-    status: pending
+        - "Core A9 Resolution Transition Semantics completed successfully after the A1-A4/A6/A7 specification repairs."
+    status: pass
 
   - id: "A10"
     gate: "A"
@@ -391,7 +394,8 @@ items:
       observed:
         - "Canonical A10 closure/reopening algebra exists at docs/set-calculus-core/CLOSURE_REOPENING_ALGEBRA.md."
         - "A10 validation workflow and audit script exist."
-    status: pending
+        - "Core A10 Closure Reopening Algebra completed successfully after the A1-A4/A6/A7 specification repairs."
+    status: pass
 
   - id: "B1"
     gate: "B"
@@ -760,8 +764,9 @@ items:
       fail:
         - "An independent implementer can reasonably choose two incompatible active rules from the repository."
       observed:
-        - "Known legacy three-state and five-witness material remains active in the main trajectory formalization."
-    status: fail
+        - "The strict repository-wide G1 consistency scan completed successfully after the active six-witness/four-state repairs."
+        - "Legacy three-state and five-witness sections remain only where explicitly marked historical or superseded."
+    status: pass
 
   - id: "G2"
     gate: "G"
@@ -780,9 +785,10 @@ items:
       fail:
         - "Current canonical material is discoverable only through historical anchors or prior conversation context."
       observed:
-        - "SCOPE.md links the human-readable release checklist."
-        - "Machine-readable checklist companion is present."
-    status: pending
+        - "SCOPE.md and Core entry points link the canonical path index."
+        - "The canonical path index includes the specification audit and all current A5-A10 Core contracts."
+        - "Core G2 Canonical Path Index completed successfully after the specification-audit integration."
+    status: pass
 
   - id: "H1"
     gate: "H"
@@ -797,8 +803,10 @@ items:
         - "A1-A10 and G1-G2 all have status pass."
       fail:
         - "Any required specification or consistency item is not pass."
-      observed: []
-    status: blocked
+      observed:
+        - "A1-A10 and G1-G2 are all recorded pass in this machine-readable checklist."
+        - "Final PR validation is required before merge."
+    status: pass
     depends_on:
       - "A1"
       - "A2"
