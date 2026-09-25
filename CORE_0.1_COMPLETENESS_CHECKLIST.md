@@ -142,8 +142,13 @@ If ownership changes, update this table without rewriting the mathematical requi
 - [ ] **A5 PASS — Transform is specified strongly enough for independent implementation.**
   - **Owner:** Chad Coulter
   - **Required artifacts:**
+    - `docs/set-calculus-core/TRANSFORM_SEMANTICS.md`
     - `docs/set-calculus-core/README.md`
-    - canonical transform specification to be added under `docs/set-calculus-core/`
+    - `docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md`
+    - `docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md`
+    - `docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md`
+    - `scripts/audit_core_a5_transform_semantics.py`
+    - `.github/workflows/core-a5-transform-semantics.yml`
   - **Minimum required semantics:**
     ```text
     applicability
@@ -162,10 +167,15 @@ If ownership changes, update this table without rewriting the mathematical requi
     ```
   - **PASS evidence:**
     - two independent implementers can determine whether `T2 o T1` is legal from the specification alone;
-    - transform-produced properties are never projected backward without an explicit rule.
+    - transform-produced properties are never projected backward without an explicit rule;
+    - declared change remains distinct from authorized change;
+    - successful, failed, reversed, and composed Transforms preserve reconstructible provenance;
+    - closure-producing Transforms obey terminal, reopening, and protected-residual rules;
+    - the A5 Transform-semantics audit passes on the final integration head.
   - **FAIL evidence:**
     - transform composition depends on undocumented convention;
-    - reversibility or preservation behavior is implicit.
+    - reversibility or preservation behavior is implicit;
+    - a Transform can bypass six-witness boundary validation, provenance continuity, or protected-residual conservation.
 
 ## A6. Trajectory and boundary semantics
 
@@ -205,7 +215,14 @@ If ownership changes, update this table without rewriting the mathematical requi
 
 - [ ] **A8 PASS — Structural proof-rule status is explicitly declared.**
   - **Owner:** Chad Coulter
-  - **Required artifact:** canonical proof-calculus section/file under `docs/set-calculus-core/`
+  - **Required artifacts:**
+    - `docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md`
+    - `docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md`
+    - `docs/set-calculus-core/TRANSFORM_SEMANTICS.md`
+    - `docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md`
+    - `docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md`
+    - `scripts/audit_core_a8_structural_proof_rules.py`
+    - `.github/workflows/core-a8-structural-proof-rules.yml`
   - **Rules requiring status:**
     ```text
     weakening
@@ -214,18 +231,23 @@ If ownership changes, update this table without rewriting the mathematical requi
     cut
     substitution
     ```
-  - **For each rule, declare exactly one:**
+  - **Declared Core 0.1 status:**
     ```text
-    ADMISSIBLE
-    RESTRICTED
-    NOT_ADMISSIBLE
-    UNRESOLVED
+    weakening   = RESTRICTED
+    contraction = RESTRICTED
+    exchange    = RESTRICTED
+    cut         = RESTRICTED
+    substitution = RESTRICTED
     ```
   - **PASS evidence:**
-    - every rule has an explicit status and, where restricted, explicit conditions;
-    - unresolved metatheory is labeled rather than silently assumed.
+    - every rule has exactly one explicit status;
+    - every RESTRICTED rule has explicit legality conditions;
+    - proof compression never deletes provenance;
+    - structural rules cannot erase conflict, identity, dependency, Transform order, closure/reopening epoch order, or unresolved obligations;
+    - the A8 structural proof-rule audit passes on the final integration head.
   - **FAIL evidence:**
-    - an implementation must guess whether a structural proof operation is legal.
+    - an implementation must guess whether a structural proof operation is legal;
+    - a structural rule can manufacture resolution or erase materially required provenance.
 
 ## A9. Resolution transition semantics
 
@@ -658,11 +680,17 @@ This section records the current checkpoint and should be updated as gates close
 - [x] Provenance policy exists.
   - Evidence: `PROVENANCE.md`
 
+- [x] Canonical Transform contract exists.
+  - Evidence: `docs/set-calculus-core/TRANSFORM_SEMANTICS.md`
+
+- [x] Canonical structural proof-rule contract exists.
+  - Evidence: `docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md`
+
 ## Known open release blockers
 
 - [ ] Legacy three-state/five-witness material has been fully normalized.
-- [ ] Transform semantics are complete enough for independent implementation.
-- [ ] Structural proof rules are classified.
+- [ ] A5 Transform semantics await maintainer PASS decision.
+- [ ] A8 structural proof rules await maintainer PASS decision.
 - [ ] Resolution-transition semantics are closed.
 - [ ] Reference implementation exists.
 - [ ] Canonical conformance suite exists and passes.

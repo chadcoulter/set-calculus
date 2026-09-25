@@ -1,0 +1,59 @@
+name: Core A5 Transform Semantics
+
+on:
+  push:
+    paths:
+      - "CORE_0.1_COMPLETENESS_CHECKLIST.md"
+      - "CORE_0.1_COMPLETENESS_CHECKLIST.yaml"
+      - "docs/set-calculus-core/TRANSFORM_SEMANTICS.md"
+      - "docs/set-calculus-core/README.md"
+      - "docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md"
+      - "docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md"
+      - "docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md"
+      - "scripts/audit_core_a8_structural_proof_rules.py"
+      - "docs/set-calculus-core/CORE_0.1_PATH_INDEX.md"
+      - "docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md"
+      - "scripts/audit_core_a5_transform_semantics.py"
+      - ".github/workflows/core-a5-transform-semantics.yml"
+  pull_request:
+    paths:
+      - "CORE_0.1_COMPLETENESS_CHECKLIST.md"
+      - "CORE_0.1_COMPLETENESS_CHECKLIST.yaml"
+      - "docs/set-calculus-core/TRANSFORM_SEMANTICS.md"
+      - "docs/set-calculus-core/README.md"
+      - "docs/set-calculus-core/TRAJECTORY_ADMISSIBILITY_AND_RESOLUTION_DEPTH.md"
+      - "docs/set-calculus-core/RESOLUTION_CLOSURE_AND_REOPENING.md"
+      - "docs/set-calculus-core/STRUCTURAL_PROOF_RULES.md"
+      - "scripts/audit_core_a8_structural_proof_rules.py"
+      - "docs/set-calculus-core/CORE_0.1_PATH_INDEX.md"
+      - "docs/philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md"
+      - "scripts/audit_core_a5_transform_semantics.py"
+      - ".github/workflows/core-a5-transform-semantics.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Validate A5 Transform contract
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compile A5 audit
+        run: python -m py_compile scripts/audit_core_a5_transform_semantics.py
+
+      - name: Validate A5 Transform semantics
+        run: python scripts/audit_core_a5_transform_semantics.py
+
+      - name: Capture structured A5 evidence
+        if: always()
+        run: python scripts/audit_core_a5_transform_semantics.py --json
