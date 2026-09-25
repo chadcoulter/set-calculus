@@ -1,18 +1,15 @@
 name: Dependency E2 Class Vocabulary
 
 on:
-  push:
-    paths:
-      - "CORE_0.1_COMPLETENESS_CHECKLIST.md"
-      - "docs/dependency-map/001-conventional-calculus-prerequisite-graph.md"
-      - "scripts/audit_dependency_e2_class_vocabulary.py"
-      - ".github/workflows/dependency-e2-class-vocabulary.yml"
   pull_request:
     paths:
       - "CORE_0.1_COMPLETENESS_CHECKLIST.md"
       - "docs/dependency-map/001-conventional-calculus-prerequisite-graph.md"
       - "scripts/audit_dependency_e2_class_vocabulary.py"
       - ".github/workflows/dependency-e2-class-vocabulary.yml"
+
+  merge_group:
+    types: [checks_requested]
 
 permissions:
   contents: read
