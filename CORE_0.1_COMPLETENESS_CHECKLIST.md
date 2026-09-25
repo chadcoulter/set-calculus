@@ -588,8 +588,15 @@ If ownership changes, update this table without rewriting the mathematical requi
     - `README.md`
     - `SCOPE.md`
     - `docs/set-calculus-core/README.md`
-  - **PASS evidence:** a new implementer can locate the canonical specification, checklist, conformance fixtures, compatibility examples, and provenance model without searching commit history.
-  - **FAIL evidence:** current canonical material is discoverable only through historical anchors or prior conversation context.
+    - `docs/set-calculus-core/CORE_0.1_PATH_INDEX.md`
+    - `scripts/audit_core_g2_path_index.py`
+    - `.github/workflows/core-g2-path-index.yml`
+  - **PASS evidence:**
+    - all three repository entry points link to the canonical path index;
+    - the index locates the current Core formalizations, G1 consistency evidence, provenance model, compatibility workspace, dependency work, and release checklist;
+    - required-but-missing artifacts remain explicitly marked `MISSING_REQUIRED`;
+    - the G2 path-index audit passes on the final integration head.
+  - **FAIL evidence:** current canonical material is discoverable only through historical anchors or prior conversation context, or the index reports a stale PRESENT/MISSING_REQUIRED state.
 
 ---
 
