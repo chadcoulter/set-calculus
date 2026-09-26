@@ -89,7 +89,7 @@ The canonical terminology ledger is the definition authority for Core primitive 
 - `RESOLUTION_TRANSITION_SEMANTICS.md` - canonical A9 public-state transition contract covering material cause, reclassification, supersession, reopening, and provenance-preserving transitions among UNRESOLVED, PARTIAL, VALID, and INVALID.
 - `CLOSURE_REOPENING_ALGEBRA.md` - canonical A10 partial algebra for CLOSE, EXTEND, REOPEN, RECLOSE, epoch/receipt order, scoped closure, and provenance-preserving closure history.
 - `RESOLUTION_CLOSURE_AND_REOPENING.md` - first-terminal-prefix closure, closure receipts, resolution epochs, evidence-driven reopening, protected residual conservation, and provenance-preserving reclosure.
-- `ANCHOR_FOUNDATIONAL_SPACE.md` - minimal foundational resolution-space substrate, primitive objects, notation, reconciliation states, closure, provenance, and Anchor axioms.
+- `../anchor-foundational-space/ANCHOR_FOUNDATIONAL_SPACE.md` - Anchor application/specialization of Set Calculus, including its resolution-space substrate, reconciliation states, closure, provenance, and Anchor axioms.
 - `RESOLUTION_TRANSITION_PROBLEM.md` - finite decision problem over an Anchor projection; canonical linear certificate bound and polynomial verifier establish bounded RTP membership in NP.
 - `RTP_NP_HARDNESS_REDUCTION.md` - candidate polynomial-time many-one reduction from 3SAT to RTP, including construction, completeness/soundness argument, and explicit proof obligations.
 - `RTP_ACTIVE_RELATIONAL_LEDGER.md` - canonical finite representation of active relational state; exact persistent Boolean-assignment representation; discharges PO-2.
