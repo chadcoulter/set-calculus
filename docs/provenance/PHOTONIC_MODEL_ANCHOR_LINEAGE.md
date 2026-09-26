@@ -55,7 +55,7 @@ The artifact defines the resolution-space framework used to derive the Anchor st
 ## Derived formal artifacts
 
 ```text
-docs/set-calculus-core/ANCHOR_FOUNDATIONAL_SPACE.md
+docs/anchor-foundational-space/ANCHOR_FOUNDATIONAL_SPACE.md
 docs/set-calculus-core/RESOLUTION_TRANSITION_PROBLEM.md
 ```
 
