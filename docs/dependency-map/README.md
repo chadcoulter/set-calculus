@@ -65,3 +65,16 @@ HISTORICAL/CURRICULAR
 `NONE` is reserved for an explicitly tested non-dependency and is not an E2 dependency class.
 
 The current provisional classifications are recorded in `001-conventional-calculus-prerequisite-graph.md`. The executable vocabulary check is `../../scripts/audit_dependency_e2_class_vocabulary.py` and is enforced by `.github/workflows/dependency-e2-class-vocabulary.yml`.
+
+
+## Core 0.1 machine-readable companion
+
+The current Core 0.1 teaching-order evidence is represented in one machine-readable companion:
+
+- [`CORE_0.1_DEPENDENCY_INVENTORY.json`](CORE_0.1_DEPENDENCY_INVENTORY.json) — classified concept-level nodes and edges;
+- [`CORE_0.1_DEPENDENCY_INVENTORY.schema.json`](CORE_0.1_DEPENDENCY_INVENTORY.schema.json) — structural schema;
+- [`generated/CORE_0.1_DERIVED_TEACHING_ORDER.md`](generated/CORE_0.1_DERIVED_TEACHING_ORDER.md) — generated topological projection.
+
+The JSON companion is the source for the generated teaching layers. The narrative research document remains the source context for the classifications and rationales. Generated Markdown must not be edited independently.
+
+The companion is research evidence. Release-gate status remains governed by the Core 0.1 completeness checklist and its validation evidence.
