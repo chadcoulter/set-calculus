@@ -8,6 +8,16 @@ See [`CORE_0.1_PATH_INDEX.md`](CORE_0.1_PATH_INDEX.md) for the repository-wide C
 
 The path index maps the active Core formalizations, consistency evidence, provenance material, compatibility work, and required-but-missing release artifacts. `CORE_0.1_COMPLETENESS_CHECKLIST.md` remains the canonical pass/fail authority.
 
+## Core-math boundary rule
+
+Core Math does not contain scope boundaries unless the boundary is a universal barrier.
+
+Scope boundaries are permitted in Applied Math.
+
+Scope boundaries are not required in Applied Math unless the application defines them as a boundary.
+
+Any universal barrier identified in Core Math requires special attention because it is an invalidating state to the core set ideology.
+
 ## Canonical primitives
 
 The canonical definitions are maintained in `../philosophy-of-set-calculus/CANONICAL_TERMINOLOGY_LEDGER.md`. This README lists the Core primitive set without redefining those terms.
