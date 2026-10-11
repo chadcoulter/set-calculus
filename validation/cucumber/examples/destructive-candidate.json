@@ -1,0 +1,83 @@
+{
+  "identity": "package",
+  "discovery_route": "QUICK_CANDIDATE",
+  "requested_resolution": {
+    "coordinate": "delivered"
+  },
+  "required_relations": [
+    "recipient"
+  ],
+  "possibility_space": [
+    {
+      "id": "a",
+      "identity": "package",
+      "values": {
+        "delivered": false,
+        "route": "north"
+      },
+      "relations": [
+        "recipient"
+      ],
+      "viable": true,
+      "provenance": [
+        "origin-a"
+      ]
+    },
+    {
+      "id": "b",
+      "identity": "package",
+      "values": {
+        "delivered": true,
+        "route": "south"
+      },
+      "relations": [
+        "recipient"
+      ],
+      "viable": true,
+      "provenance": [
+        "origin-b"
+      ]
+    }
+  ],
+  "candidate_transform": {
+    "images": [
+      {
+        "source": "a",
+        "id": "a",
+        "identity": "package",
+        "values": {
+          "delivered": true,
+          "route": "north"
+        },
+        "relations": [],
+        "viable": true,
+        "provenance": [
+          "origin-a",
+          "delivered"
+        ]
+      },
+      {
+        "source": "b",
+        "id": "b",
+        "identity": "package",
+        "values": {
+          "delivered": true,
+          "route": "south"
+        },
+        "relations": [
+          "recipient"
+        ],
+        "viable": true,
+        "provenance": [
+          "origin-b",
+          "delivered"
+        ]
+      }
+    ]
+  },
+  "active_boundary": [],
+  "continuations": [],
+  "provenance": [
+    "candidate-found-before-validation"
+  ]
+}

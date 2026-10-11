@@ -1,0 +1,16 @@
+{
+  "name": "set-calculus-validator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test --test-isolation=none test/*.test.js && cucumber-js --config cucumber.cjs",
+    "validate": "node src/cli.js"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "13.3.0"
+  }
+}

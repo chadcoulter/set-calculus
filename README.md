@@ -9,6 +9,34 @@ The project has two linked goals:
 
 The goal is not merely to describe sets. It is to make relationships between states explicit, executable, reversible where possible, and traceable.
 
+## Set Transformation Graph Analysis
+
+Set Transformation Graph Analysis draws out the relational structure of a function from a point through set transformations.
+
+The graph need not be fully specified beforehand. Starting from a point, analysis follows a function's relationships, exposing connected states and transformations. State, continuity, and context are expressed through the emerging graph.
+
+### Resolution
+
+Analysis proceeds far enough to resolve the requested purpose. It does not require every underlying distinction to be resolved.
+
+Possibilities that produce the same requested result may remain distinct within the graph. These distinctions remain dangling until a change in context, request, or continuation makes them relevant.
+
+### Discovery and Validation
+
+A solution may be reached through:
+
+- knowledge that establishes the relevant relationships;
+- transformation with validation throughout the process;
+- rapid discovery of a candidate, followed by validation.
+
+Validation examines both the result and the transformation history. It checks preservation of the subject, required relationships, viability, and provenance, together with sufficiency under the relevant continuation.
+
+### The Graph as a Record
+
+The graph represents the function's exposed relational structure and records how that structure was reached.
+
+Resolution establishes when enough has been exposed for the requested purpose. Validation establishes whether the resulting resolution is admissible. New relevant distinctions can reopen the analysis without erasing its prior states or history.
+
 ## Core idea
 
 ```text

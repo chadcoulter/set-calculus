@@ -95,3 +95,19 @@ Feature: Law II - Transformation Preservation
 - The trace preserves all prior states, transforms, evidence, and provenance.
 - Closure identifies a singular relevant image with admissible preservation.
 - The project remains an external validation application consuming Set Calculus Core definitions.
+
+## First executable milestone
+
+`validation/cucumber/README.md` documents the finite validator, candidate discovery
+routes, evidence limits, CLI, conformance statuses and executable examples.
+The original law stories remain specification targets; the concrete suite under
+`validation/cucumber/features/executable/` exercises all 18 registered evaluators
+and recursive validation. Core contract integration and complete translation of
+the abstract stories remain open work.
+
+## Updated CTRL follow-up
+
+See [CTRL Observability and Co-Transformation Validation](ctrl-observability-and-co-transformation-validation.md)
+for the next twelve stories and planned Cucumber scenarios covering updated Book I,
+observable/unobservable relationships, partial closure, typed actor configurations,
+witnesses, co-transformed remainders and continuing graph analysis.
